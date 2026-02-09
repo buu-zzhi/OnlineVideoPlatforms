@@ -38,5 +38,6 @@ public interface BaseMapper<T, P> {
     * selectCount 根据集合查询参数
     */
     Integer selectCount(@Param("query") P p);
+
 }
 

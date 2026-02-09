@@ -85,8 +85,23 @@ public class ABaseController {
      */
     protected TokenUserInfoDto getTokenUserInfoDto() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String token = request.getHeader(Constants.TOKEN_WEB);
+//        String token = request.getHeader(Constants.TOKEN_WEB);
+        String token = getTokenFromCookie(request);
         return redisComponent.getTokenInfo(token);
+    }
+
+    private String getTokenFromCookie(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies == null) {
+            return null;
+        }
+        String token = null;
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals(Constants.TOKEN_WEB)) {
+                return cookie.getValue();
+            }
+        }
+        return null;
     }
 
     protected void cleanCookie(HttpServletResponse response) {

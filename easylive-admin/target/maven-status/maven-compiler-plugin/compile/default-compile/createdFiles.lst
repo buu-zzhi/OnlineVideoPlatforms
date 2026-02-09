@@ -1,3 +1,5 @@
+com\easylive\admin\controller\VideoInfoController.class
+com\easylive\admin\controller\FileController.class
 com\easylive\admin\controller\AccountController.class
 com\easylive\admin\EasyliveAdminRunApplication.class
 com\easylive\admin\intersecptor\WebAppConfigurer.class

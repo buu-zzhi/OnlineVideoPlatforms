@@ -1,7 +1,11 @@
 package com.easylive.web.controller;
 
+import com.easylive.component.RedisComponent;
 import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.constants.Constants;
+import com.easylive.entity.dto.SysSettingDto;
+import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.dto.UploadingFileDto;
 import com.easylive.entity.enums.DateTimePatternEnum;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.vo.ResponseVO;
@@ -10,6 +14,7 @@ import com.easylive.utils.DateUtils;
 import com.easylive.utils.FFmpegUtils;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +38,11 @@ public class FileController extends ABaseController {
     @Resource
     private AppConfig appConfig;
 
+    @Resource
+    private RedisComponent redisComponent;
+
+    @Resource
+    private FFmpegUtils ffmpegUtils;
 
     @RequestMapping("/getResource")
     public void getResource(HttpServletResponse response, @NotNull String sourceName) throws IOException {
@@ -60,6 +71,76 @@ public class FileController extends ABaseController {
         } catch (Exception e) {
             log.error("读取文件异常",e);
         }
+    }
+
+    /**
+     * 预上传接口
+     * @param fileName 文件名称
+     * @param chunks  视频的分片数
+     */
+    @RequestMapping("/preUploadVideo")
+    public ResponseVO preUploadVideo(@NotEmpty String fileName, @NotNull Integer chunks) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        String uploadId = redisComponent.savePreVideoFileInfo(tokenUserInfoDto.getUserId(), fileName, chunks);
+        return getSuccessResponseVO(uploadId);
+    }
+
+    @RequestMapping("/uploadVideo")
+    public ResponseVO uploadVideo(@NotNull MultipartFile chunkFile, @NotNull Integer chunkIndex, @NotEmpty String uploadId) throws IOException {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        UploadingFileDto fileDto = redisComponent.getUploadVideoFile(tokenUserInfoDto.getUserId(), uploadId);
+        if (fileDto == null) {
+            throw new BusinessException("文件不存在请重新上传");
+        }
+        SysSettingDto sysSettingDto = redisComponent.getSysSettingDto();
+        if (fileDto.getFileSize() > sysSettingDto.getVideoSize()*Constants.MB_SIZE) {
+            throw new BusinessException("文件超过大小限制");
+        }
+
+        // 判断分片
+        // TODO 为什么要判断 (chunkIndex - 1) > fileDto.getChunkIndex() ？
+        if ((chunkIndex - 1) > fileDto.getChunkIndex() || chunkIndex > fileDto.getChunks() - 1) {
+            throw new BusinessException(ResponseCodeEnum.CODE_600);
+        }
+        String folder = appConfig.getProjectFolder() + Constants.FILE_FOLDER + Constants.FILE_FOLDER_TEMP+ fileDto.getFilePath();
+        // 上传一个分片就创建一个文件
+        File targetFile = new File(folder + "/" + chunkIndex);
+        chunkFile.transferTo(targetFile);
+        fileDto.setChunkIndex(chunkIndex);
+        fileDto.setFileSize(fileDto.getFileSize() + chunkFile.getSize());
+        redisComponent.updateVideoFileInfo(tokenUserInfoDto.getUserId(), fileDto);
+        return getSuccessResponseVO(null);
+    }
+
+    @RequestMapping("/delUploadVideo")
+    public ResponseVO delUploadVideo(@NotEmpty String uploadId) throws IOException {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        UploadingFileDto fileDto = redisComponent.getUploadVideoFile(tokenUserInfoDto.getUserId(), uploadId);
+        if (fileDto == null) {
+            throw new BusinessException("文件不存在请重新上传");
+        }
+        redisComponent.delVideoFileInfo(tokenUserInfoDto.getUserId(), uploadId);
+        FileUtils.deleteDirectory(new File(appConfig.getProjectFolder()+Constants.FILE_FOLDER+Constants.FILE_FOLDER_TEMP + fileDto.getFilePath()));
+        return getSuccessResponseVO(uploadId);
+    }
+
+    @RequestMapping("/uploadImage")
+    public ResponseVO uploadImage(@NotNull MultipartFile file, @NotNull Boolean createThumbnail) throws IOException {
+        String day = DateUtils.format(new Date(), DateTimePatternEnum.YYYYMM.getPattern());
+        String folder = appConfig.getProjectFolder() + Constants.FILE_FOLDER + Constants.FILE_COVER + day;
+        File folderFile = new File(folder);
+        if (!folderFile.exists()) {
+            folderFile.mkdirs();
+        }
+        String fileName = file.getOriginalFilename();
+        String realFileName = StringTools.getRandomString(Constants.length_30) + StringTools.getFileSuffix(fileName);
+        String filePath = folder + "/" + realFileName;
+        file.transferTo(new File(filePath));
+        if (createThumbnail!=null&&createThumbnail) {
+            // 生成缩略图
+            ffmpegUtils.createImageThumbnail(filePath);
+        }
+        return getSuccessResponseVO(Constants.FILE_COVER + day + "/" + realFileName);
     }
 
 

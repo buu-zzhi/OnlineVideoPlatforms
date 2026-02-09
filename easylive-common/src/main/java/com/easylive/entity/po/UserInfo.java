@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @Description: 用户信息
  * @Author: false
- * @Date: 2026/02/01 19:48:05
+ * @Date: 2026/02/09 20:14:09
  */
 public class UserInfo implements Serializable {
 	/**
@@ -100,6 +100,11 @@ public class UserInfo implements Serializable {
  	 * 
  	 */
 	private Integer theme;
+
+	/**
+ 	 * 头像
+ 	 */
+	private String avatar;
 
 
 	public void setUserId(String userId) {
@@ -229,6 +234,14 @@ public class UserInfo implements Serializable {
 	public Integer getTheme() {
 		return theme;
 	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
 	@Override
 	public String toString() {
 		return "用户id:" + (userId == null ? "空" : userId) + "," + 
@@ -239,13 +252,14 @@ public class UserInfo implements Serializable {
 				"出生日期:" + (birthday == null ? "空" : birthday) + "," + 
 				"学校:" + (school == null ? "空" : school) + "," + 
 				"个人介绍:" + (personIntroduction == null ? "空" : personIntroduction) + "," + 
-				":" + (joinTime == null ? "空" : DateUtils.format(joinTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) + "," + 
+				":" + (joinTime == null ? "空" : DateUtils.format(joinTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) + "," +
 				"最后登录时间:" + (lastLoginTime == null ? "空" : DateUtils.format(lastLoginTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) + "," + 
 				"最后登录ip:" + (lastLoginIp == null ? "空" : lastLoginIp) + "," + 
 				":" + (status == null ? "空" : status) + "," + 
 				"空间公告:" + (noticeInfo == null ? "空" : noticeInfo) + "," + 
 				":" + (totalCoinCount == null ? "空" : totalCoinCount) + "," + 
 				":" + (currentCoinCount == null ? "空" : currentCoinCount) + "," + 
-				":" + (theme == null ? "空" : theme);
+				":" + (theme == null ? "空" : theme) + "," + 
+				"头像:" + (avatar == null ? "空" : avatar);
 		}
 }

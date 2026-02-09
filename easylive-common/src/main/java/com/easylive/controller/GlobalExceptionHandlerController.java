@@ -12,11 +12,11 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import javax.validation.ConstraintViolationException;
 import java.net.BindException;
 
-@RestControllerAdvice
+//@RestControllerAdvice
 public class GlobalExceptionHandlerController {
     private static final String STATUS_ERROR = "error";
 
-    @ExceptionHandler(value = Exception.class)
+//    @ExceptionHandler(value = Exception.class)
     public ResponseVO handlerException(Exception e) {
         ResponseVO ajaxResponse = new ResponseVO();
         if (e instanceof NoHandlerFoundException) {

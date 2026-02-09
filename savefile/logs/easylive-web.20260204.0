@@ -1,0 +1,333 @@
+2026-02-04 21:47:01 [INFO][com.easylive.web.EasyliveWebRunApplication][logStarting][55]-> Starting EasyliveWebRunApplication using Java 22.0.2 on liang_qiongyin with PID 16652 (D:\code\java_project\easylive\easylive\easylive-web\target\classes started by liang in D:\code\java_project\easylive\easylive)
+2026-02-04 21:47:01 [INFO][com.easylive.web.EasyliveWebRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
+2026-02-04 21:47:01 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 5 ms. Found 0 Elasticsearch repository interfaces.
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-04 21:47:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-02-04 21:47:02 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7071 (http)
+2026-02-04 21:47:02 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7071"]
+2026-02-04 21:47:02 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
+2026-02-04 21:47:02 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-02-04 21:47:02 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
+2026-02-04 21:47:02 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1279 ms
+2026-02-04 21:47:02 [WARN][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext][refresh][599]-> Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'accountController' defined in file [D:\code\java_project\easylive\easylive\easylive-web\target\classes\com\easylive\web\controller\AccountController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.easylive.web.controller.AccountController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ";", delete this token
+
+2026-02-04 21:47:02 [INFO][org.apache.catalina.core.StandardService][log][173]-> Stopping service [Tomcat]
+2026-02-04 21:47:02 [ERROR][org.springframework.boot.SpringApplication][reportFailure][818]-> Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'accountController' defined in file [D:\code\java_project\easylive\easylive\easylive-web\target\classes\com\easylive\web\controller\AccountController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.easylive.web.controller.AccountController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ";", delete this token
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.easylive.web.EasyliveWebRunApplication.main(EasyliveWebRunApplication.java:17)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.easylive.web.controller.AccountController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ";", delete this token
+
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:226)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326)
+	... 17 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ";", delete this token
+
+	at com.easylive.web.controller.ABaseController.<init>(ABaseController.java:10)
+	at com.easylive.web.controller.AccountController.<init>(AccountController.java:33)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:213)
+	... 19 common frames omitted
+2026-02-04 21:47:26 [INFO][com.easylive.web.EasyliveWebRunApplication][logStarting][55]-> Starting EasyliveWebRunApplication using Java 22.0.2 on liang_qiongyin with PID 18584 (D:\code\java_project\easylive\easylive\easylive-web\target\classes started by liang in D:\code\java_project\easylive\easylive)
+2026-02-04 21:47:26 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
+2026-02-04 21:47:26 [INFO][com.easylive.web.EasyliveWebRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 5 ms. Found 0 Elasticsearch repository interfaces.
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-04 21:47:27 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-02-04 21:47:27 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7071 (http)
+2026-02-04 21:47:27 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7071"]
+2026-02-04 21:47:27 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
+2026-02-04 21:47:27 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-02-04 21:47:28 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
+2026-02-04 21:47:28 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1141 ms
+2026-02-04 21:47:28 [DEBUG][io.lettuce.core.resource.AddressResolverGroupProvider][<clinit>][37]-> Starting without optional netty's non-blocking DNS resolver library
+2026-02-04 21:47:28 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<clinit>][122]-> -Dio.netty.eventLoopThreads: 16
+2026-02-04 21:47:28 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-02-04 21:47:28 [DEBUG][io.lettuce.core.event.jfr.EventRecorderHolder][<clinit>][47]-> Starting with JFR support
+2026-02-04 21:47:28 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<init>][227]-> LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-02-04 21:47:29 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Starting ProtocolHandler ["http-nio-7071"]
+2026-02-04 21:47:29 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][start][220]-> Tomcat started on port(s): 7071 (http) with context path ''
+2026-02-04 21:47:29 [INFO][com.easylive.web.EasyliveWebRunApplication][logStarted][61]-> Started EasyliveWebRunApplication in 2.849 seconds (JVM running for 3.443)
+2026-02-04 21:47:39 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04 21:47:39 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][525]-> Initializing Servlet 'dispatcherServlet'
+2026-02-04 21:47:39 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][547]-> Completed initialization in 2 ms
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.RedisClient][connectStandaloneAsync][273]-> Trying to get a Redis connection for: redis://localhost/2?timeout=2s
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.KqueueProvider][<clinit>][73]-> Starting without optional kqueue library
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.IOUringProvider][<clinit>][75]-> Starting without optional io_uring library
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.EpollProvider][<clinit>][76]-> Starting without optional epoll library
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][allocate][112]-> Allocating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][addReference][128]-> Adding reference to io.netty.channel.nio.NioEventLoopGroup@54e4985a, existing ref count 0
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.RedisClient][lambda$getSocketAddressSupplier$14][736]-> Resolved SocketAddress localhost/<unresolved>:6379 using redis://localhost/2?timeout=2s
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.AbstractRedisClient][initializeChannelAsync0][401]-> Connecting to Redis at localhost/<unresolved>:6379
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRegistered][206]-> [channel=0x2b37603e, [id: 0xb3143fe6] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 30 bytes, 1 commands in the stack
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='ERR unknown command 'HELLO''], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 7 bytes, 1 commands in the stack
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PING, output=StatusOutput [output=PONG, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=SELECT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][310]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][462]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][467]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] activating endpoint
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][549]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands()
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][564]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelActive][188]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][321]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.AbstractRedisClient][lambda$null$5][439]-> Connecting to Redis at localhost/<unresolved>:6379: Success
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:47:39 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@2b70ee27, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][110]-> HikariCPDatasource - Starting...
+2026-02-04 21:48:14 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][123]-> HikariCPDatasource - Start completed.
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:14 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=DEL, output=IntegerOutput [output=1, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 496 bytes, 1 commands in the stack
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: false
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 574 bytes, 1 commands in the stack
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@8c8cd91, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 1070 bytes, 1 commands in the stack
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:25 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@24650b79, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:48:47 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@58bb8896, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=DEL, output=IntegerOutput [output=1, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:49:15 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:51:23 [INFO][com.zaxxer.hikari.HikariDataSource][close][350]-> HikariCPDatasource - Shutdown initiated...
+2026-02-04 21:51:23 [INFO][com.zaxxer.hikari.HikariDataSource][close][352]-> HikariCPDatasource - Shutdown completed.
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.RedisChannelHandler][closeAsync][141]-> closeAsync()
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][closeAsync][590]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] closeAsync()
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.AbstractRedisClient][shutdownAsync][539]-> Initiate shutdown (100, 100, MILLISECONDS)
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][344]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive()
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelInactive$3][504]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1] deactivating endpoint handler
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][368]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive() done
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][196]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelInactive()
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][207]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] Reconnect scheduling disabled
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelUnregistered][227]-> [channel=0x2b37603e, /127.0.0.1:7066 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelUnregistered()
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][doRelease][281]-> Release executor io.netty.channel.nio.NioEventLoopGroup@54e4985a
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.resource.DefaultClientResources][shutdown][735]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-04 21:51:23 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][shutdown][317]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-04 21:52:01 [INFO][com.easylive.web.EasyliveWebRunApplication][logStarting][55]-> Starting EasyliveWebRunApplication using Java 22.0.2 on liang_qiongyin with PID 16388 (D:\code\java_project\easylive\easylive\easylive-web\target\classes started by liang in D:\code\java_project\easylive\easylive)
+2026-02-04 21:52:01 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
+2026-02-04 21:52:01 [INFO][com.easylive.web.EasyliveWebRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 7 ms. Found 0 Elasticsearch repository interfaces.
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-04 21:52:01 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-02-04 21:52:02 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7071 (http)
+2026-02-04 21:52:02 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7071"]
+2026-02-04 21:52:02 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
+2026-02-04 21:52:02 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-02-04 21:52:02 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
+2026-02-04 21:52:02 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1269 ms
+2026-02-04 21:52:02 [DEBUG][io.lettuce.core.resource.AddressResolverGroupProvider][<clinit>][37]-> Starting without optional netty's non-blocking DNS resolver library
+2026-02-04 21:52:02 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<clinit>][122]-> -Dio.netty.eventLoopThreads: 16
+2026-02-04 21:52:02 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-02-04 21:52:02 [DEBUG][io.lettuce.core.event.jfr.EventRecorderHolder][<clinit>][47]-> Starting with JFR support
+2026-02-04 21:52:02 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<init>][227]-> LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-02-04 21:52:03 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Starting ProtocolHandler ["http-nio-7071"]
+2026-02-04 21:52:03 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][start][220]-> Tomcat started on port(s): 7071 (http) with context path ''
+2026-02-04 21:52:03 [INFO][com.easylive.web.EasyliveWebRunApplication][logStarted][61]-> Started EasyliveWebRunApplication in 2.837 seconds (JVM running for 3.429)
+2026-02-04 21:52:31 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-04 21:52:31 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][525]-> Initializing Servlet 'dispatcherServlet'
+2026-02-04 21:52:31 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][547]-> Completed initialization in 0 ms
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.RedisClient][connectStandaloneAsync][273]-> Trying to get a Redis connection for: redis://localhost/2?timeout=2s
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.KqueueProvider][<clinit>][73]-> Starting without optional kqueue library
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.IOUringProvider][<clinit>][75]-> Starting without optional io_uring library
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.EpollProvider][<clinit>][76]-> Starting without optional epoll library
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][allocate][112]-> Allocating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][addReference][128]-> Adding reference to io.netty.channel.nio.NioEventLoopGroup@58081533, existing ref count 0
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.RedisClient][lambda$getSocketAddressSupplier$14][736]-> Resolved SocketAddress localhost/<unresolved>:6379 using redis://localhost/2?timeout=2s
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.AbstractRedisClient][initializeChannelAsync0][401]-> Connecting to Redis at localhost/<unresolved>:6379
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRegistered][206]-> [channel=0x108f7b83, [id: 0x560a7968] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 30 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='ERR unknown command 'HELLO''], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 7 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PING, output=StatusOutput [output=PONG, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=SELECT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][310]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][462]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][467]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] activating endpoint
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][549]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands()
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][564]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelActive][188]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][321]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.AbstractRedisClient][lambda$null$5][439]-> Connecting to Redis at localhost/<unresolved>:6379: Success
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 1024 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: false
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 46 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@3a97f98d, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 1070 bytes, 1 commands in the stack
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-04 21:53:20 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@4ef7f446, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.RedisChannelHandler][closeAsync][141]-> closeAsync()
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][closeAsync][590]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] closeAsync()
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.AbstractRedisClient][shutdownAsync][539]-> Initiate shutdown (100, 100, MILLISECONDS)
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][344]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive()
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelInactive$3][504]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1] deactivating endpoint handler
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][368]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive() done
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][196]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelInactive()
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][doRelease][281]-> Release executor io.netty.channel.nio.NioEventLoopGroup@58081533
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][207]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] Reconnect scheduling disabled
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelUnregistered][227]-> [channel=0x108f7b83, /127.0.0.1:5540 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelUnregistered()
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.resource.DefaultClientResources][shutdown][735]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-04 21:53:50 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][shutdown][317]-> Initiate shutdown (0, 2, SECONDS)

@@ -37,6 +37,7 @@ mybatis:
   mapper-locations: classpath*:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 project:
   folder: D:/code/java_project/easylive/easylive/savefile/
@@ -56,3 +57,5 @@ admin:
 
 ffmpeg:
   path: C:\Users\liang\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe
+  ffprobe: C:\Users\liang\AppData\Local\Microsoft\WinGet\Links\ffprobe.exe
+

@@ -26,6 +26,7 @@ public class AppInterceptor implements HandlerInterceptor {
     @Resource
     private RedisComponent redisComponent;
 
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // handler 的目的：知道当前请求要访问的方法

@@ -173,8 +173,8 @@ public class UserInfoServiceImpl implements UserInfoService{
         userInfo.setUserId(userId);
         userInfo.setNickName(nickName);
         userInfo.setEmail(email);
-//        userInfo.setPassword(StringTools.enCodeByMd5(registerPassword));
-        userInfo.setPassword(registerPassword);
+        userInfo.setPassword(StringTools.enCodeByMd5(registerPassword));
+//        userInfo.setPassword(registerPassword);
         userInfo.setJoinTime(new Date());
         userInfo.setStatus(UserStatusEnum.ENABLE.getStatus());
         userInfo.setSex(UserSexEnum.SECRET.getStatus());

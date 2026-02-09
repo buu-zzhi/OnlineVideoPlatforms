@@ -20,6 +20,13 @@ public class AppConfig {
     @Value("${ffmpeg.path:}")
     private String ffmpegPath;
 
+    @Value("${ffmpeg.ffprobe:}")
+    private String ffprobePath;
+
+    public String getFfprobePath() {
+        return ffprobePath;
+    }
+
     public String getFfmpegPath() {
         return ffmpegPath;
     }
