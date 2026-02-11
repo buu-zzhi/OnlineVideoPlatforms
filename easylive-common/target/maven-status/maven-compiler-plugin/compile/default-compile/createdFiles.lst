@@ -18,6 +18,7 @@ com\easylive\redis\RedisUtils.class
 com\easylive\entity\config\AppConfig.class
 com\easylive\utils\ProcessUtils.class
 com\easylive\utils\JsonUtils.class
+com\easylive\entity\enums\VideoRecommendType.class
 com\easylive\entity\constants\Constants.class
 com\easylive\entity\constants\ExceptionConstants.class
 com\easylive\mapper\BaseMapper.class

@@ -301,7 +301,7 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
             Integer duration = fFmpegUtils.getVideoInfoDuration(completeVideo);
             updateFilePost.setDuration(duration);
             updateFilePost.setFileSize(new File(completeVideo).length());
-            updateFilePost.setFilePath(Constants.FILE_COVER+ fileDto.getFilePath());
+            updateFilePost.setFilePath(Constants.FILE_VIDEO+ fileDto.getFilePath());
             updateFilePost.setTransferResult(VideoFileTransferResultEnum.SUCCESS.getStatus());
 
             convertVideo2Ts(completeVideo);

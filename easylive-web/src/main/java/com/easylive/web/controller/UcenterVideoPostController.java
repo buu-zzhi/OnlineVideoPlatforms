@@ -37,6 +37,9 @@ public class UcenterVideoPostController extends ABaseController {
     @Resource
     private VideoInfoService videoInfoService;
 
+    /**
+     * 发布视频
+     */
     @RequestMapping("/postVideo")
     public ResponseVO postVideo(String videoId,
                                 @NotEmpty String videoCover,

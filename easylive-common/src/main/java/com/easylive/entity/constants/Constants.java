@@ -1,6 +1,9 @@
 package com.easylive.entity.constants;
 
 public class Constants {
+
+    public static final Integer ZERO = 0;
+    public static final Integer ONE = 1;
     public static final Integer DEFAULT_PID = 0;
     public static final Integer DEFAULT_THEME = 1;
     public static final Integer REDIS_KEY_EXPIRES_ONE_MIN = 60000;

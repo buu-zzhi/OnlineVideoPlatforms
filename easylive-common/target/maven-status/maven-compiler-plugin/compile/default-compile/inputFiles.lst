@@ -44,6 +44,7 @@ D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easyliv
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\utils\StringTools.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\redis\RedisConfig.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\utils\DateUtils.java
+D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\enums\VideoRecommendType.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\constants\ExceptionConstants.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\mapper\VideoInfoPostMapper.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\po\VideoInfoFile.java

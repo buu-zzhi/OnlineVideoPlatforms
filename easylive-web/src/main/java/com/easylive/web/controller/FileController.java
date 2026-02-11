@@ -8,14 +8,18 @@ import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.dto.UploadingFileDto;
 import com.easylive.entity.enums.DateTimePatternEnum;
 import com.easylive.entity.enums.ResponseCodeEnum;
+import com.easylive.entity.po.VideoInfoFile;
 import com.easylive.entity.vo.ResponseVO;
 import com.easylive.exception.BusinessException;
+import com.easylive.service.VideoInfoFileService;
 import com.easylive.utils.DateUtils;
 import com.easylive.utils.FFmpegUtils;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,6 +47,8 @@ public class FileController extends ABaseController {
 
     @Resource
     private FFmpegUtils ffmpegUtils;
+    @Autowired
+    private VideoInfoFileService videoInfoFileService;
 
     @RequestMapping("/getResource")
     public void getResource(HttpServletResponse response, @NotNull String sourceName) throws IOException {
@@ -55,6 +61,9 @@ public class FileController extends ABaseController {
         readFile(response, sourceName);
     }
 
+    /**
+     * 将文件写入到response中
+     */
     protected void readFile(HttpServletResponse response, String filePath){
         File file = new File(appConfig.getProjectFolder() + Constants.FILE_FOLDER + filePath);
         if (!file.exists()) {
@@ -85,6 +94,7 @@ public class FileController extends ABaseController {
         return getSuccessResponseVO(uploadId);
     }
 
+    /*  上传视频文件   */
     @RequestMapping("/uploadVideo")
     public ResponseVO uploadVideo(@NotNull MultipartFile chunkFile, @NotNull Integer chunkIndex, @NotEmpty String uploadId) throws IOException {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
@@ -124,6 +134,7 @@ public class FileController extends ABaseController {
         return getSuccessResponseVO(uploadId);
     }
 
+    /*  上传封面图片   */
     @RequestMapping("/uploadImage")
     public ResponseVO uploadImage(@NotNull MultipartFile file, @NotNull Boolean createThumbnail) throws IOException {
         String day = DateUtils.format(new Date(), DateTimePatternEnum.YYYYMM.getPattern());
@@ -141,6 +152,23 @@ public class FileController extends ABaseController {
             ffmpegUtils.createImageThumbnail(filePath);
         }
         return getSuccessResponseVO(Constants.FILE_COVER + day + "/" + realFileName);
+    }
+
+    /*  获取视频m3u8文件   */
+    @RequestMapping("/videoResource/{fileId}")
+    public void videoResource(HttpServletResponse response, @PathVariable @NotEmpty String fileId) {
+        VideoInfoFile videoInfoFile = videoInfoFileService.getVideoInfoFileByFileId(fileId);
+        String filePath = videoInfoFile.getFilePath();
+        readFile(response, filePath + "/" + Constants.M3U8_NAME);
+        //TODO 更新视频阅读信息
+    }
+
+    /*  获取视频ts文件   */
+    @RequestMapping("/videoResource/{fileId}/{ts}")
+    public void videoResourceTs(HttpServletResponse response, @PathVariable @NotEmpty String fileId, @PathVariable @NotEmpty String ts) {
+        VideoInfoFile videoInfoFile = videoInfoFileService.getVideoInfoFileByFileId(fileId);
+        String filePath = videoInfoFile.getFilePath();
+        readFile(response, filePath + "/" + ts);
     }
 
 

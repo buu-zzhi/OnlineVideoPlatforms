@@ -5,4 +5,5 @@ com\easylive\web\controller\CategoryController.class
 com\easylive\web\controller\FileController.class
 com\easylive\web\controller\UcenterVideoPostController.class
 com\easylive\web\EasyliveWebRunApplication.class
+com\easylive\web\controller\VideoController.class
 com\easylive\web\controller\AccountController.class
