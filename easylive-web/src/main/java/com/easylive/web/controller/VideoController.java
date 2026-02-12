@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.component.RedisComponent;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.UserActionTypeEnum;
@@ -35,6 +36,9 @@ import java.util.List;
 public class VideoController extends ABaseController {
     @Resource
     private VideoInfoService videoInfoService;
+
+    @Resource
+    private RedisComponent redisComponent;
 
     @Resource
     private VideoInfoFileService videoInfoFileService;
@@ -106,8 +110,8 @@ public class VideoController extends ABaseController {
     /*   获取观看视频在线人数   */
     @RequestMapping("/reportVideoPlayOnline")
     public ResponseVO reportVideoPlayOnline(@NotEmpty String fileId, @NotEmpty String deviceId) {
-        // TODO 完成获取在线人数的接口功能
-        return getSuccessResponseVO(null);
+
+        return getSuccessResponseVO(redisComponent.reportVideoPlayOnline(fileId, deviceId));
     }
 
 }

@@ -145,6 +145,11 @@ public class RedisUtils<V> {
         }
     }
 
+    /**
+     * 如果key存在，key对应的数值+1
+     * @param key
+     * @return
+     */
     public Long increment(String key) {
         Long count = redisTemplate.opsForValue().increment(key, 1);
         return count;

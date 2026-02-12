@@ -6,6 +6,7 @@ public class Constants {
     public static final Integer ONE = 1;
     public static final Integer DEFAULT_PID = 0;
     public static final Integer DEFAULT_THEME = 1;
+    public static final Integer REDIS_KEY_EXPIRES_ONE_SECOND = 1000;
     public static final Integer REDIS_KEY_EXPIRES_ONE_MIN = 60000;
     public static final Integer REDIS_KEY_EXPIRES_ONE_DAY = REDIS_KEY_EXPIRES_ONE_MIN * 24 * 60;
     public static final Integer length_2 = 2;
@@ -47,7 +48,11 @@ public class Constants {
     public static final String TS_NAME = "index.ts";
     public static final String M3U8_NAME = "index.m3u8";
 
-
+    // 视频在线
+    public static final String REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE_PREFiX = REDIS_KEY_PREFIX + "video:play:online:";
+    public static final String REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE = REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE_PREFiX + "count:%s";
+    public static final String REDIS_KEY_VIDEO_PLAY_COUNT_USER_PREFiX = "user:";
+    public static final String REDIS_KEY_VIDEO_PLAY_COUNT_USER = REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE_PREFiX + REDIS_KEY_VIDEO_PLAY_COUNT_USER_PREFiX + "%s:%s";
 
 
 
