@@ -83,8 +83,17 @@ public class VideoCommentQuery extends BaseQuery {
  	 */
 	private Integer hateCount;
 
+    private Boolean loadChildren;
 
-	public void setCommentId(Integer commentId) {
+    public Boolean getLoadChildren() {
+        return loadChildren;
+    }
+
+    public void setLoadChildren(Boolean loadChildren) {
+        this.loadChildren = loadChildren;
+    }
+
+    public void setCommentId(Integer commentId) {
 		this.commentId = commentId;
 	}
 

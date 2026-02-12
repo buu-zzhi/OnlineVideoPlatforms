@@ -2,6 +2,8 @@ package com.easylive.mapper;
 
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @Description: 评论 Mapper
  * @Author: false
@@ -24,4 +26,12 @@ public interface VideoCommentMapper<T, P> extends BaseMapper {
  	 */
 	Integer deleteByCommentId(@Param("commentId")Integer commentId);
 
+    List<T> selectListWithChildren(@Param("query")P p);
+
+    Integer updateCountInfo(@Param("commentId") Integer commentId, @Param("field") String field, @Param("changeCount")Integer changeCount,
+    @Param("opposeField") String opposeField, @Param("opposeChangeCount") Integer opposeChangeCount);
+
+    void updateByParam(@Param("bean") T t, @Param("query")P p);
+
+    void deleteByParam(@Param("query")P p);
 }

@@ -7,18 +7,19 @@ import java.util.List;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.UserActionTypeEnum;
+import com.easylive.entity.po.UserInfo;
+import com.easylive.entity.po.VideoComment;
 import com.easylive.entity.po.VideoInfo;
-import com.easylive.entity.query.SimplePage;
+import com.easylive.entity.query.*;
 import com.easylive.entity.enums.PageSize;
-import com.easylive.entity.query.VideoInfoQuery;
 import com.easylive.exception.BusinessException;
 import com.easylive.mapper.UserActionMapper;
 import com.easylive.mapper.UserInfoMapper;
+import com.easylive.mapper.VideoCommentMapper;
 import com.easylive.mapper.VideoInfoMapper;
 import com.easylive.service.UserActionService;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.UserAction;
-import com.easylive.entity.query.UserActionQuery;
 import com.easylive.service.VideoInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,10 @@ public class UserActionServiceImpl implements UserActionService{
     @Resource
     private VideoInfoMapper<VideoInfo, VideoInfoQuery> videoInfoMapper;
     @Autowired
-    private UserInfoMapper userInfoMapper;
+    private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
+
+    @Resource
+    private VideoCommentMapper<VideoComment, VideoCommentQuery> videoCommentMapper;
 
     /**
  	 * 根据条件查询列表
@@ -154,6 +158,7 @@ public class UserActionServiceImpl implements UserActionService{
             throw new BusinessException(ResponseCodeEnum.CODE_600);
         }
 
+        // 根据当前信息查找数据库里是否已经有对应的信息了
         UserAction dbAction = userActionMapper.selectByVideoIdAndCommentIdAndActionTypeAndUserId(bean.getVideoId(), bean.getCommentId(), bean.getActionType(), bean.getUserId());
         bean.setActionTime(new Date());
 
@@ -190,6 +195,26 @@ public class UserActionServiceImpl implements UserActionService{
                 }
                 userActionMapper.insert(bean);
                 videoInfoMapper.updateCountInfo(bean.getVideoId(), actionTypeEnum.getField(), bean.getActionCount());
+                break;
+            case COMMENT_LIKE:
+            case COMMENT_HATE:
+                UserActionTypeEnum opposeTypeEnum = UserActionTypeEnum.COMMENT_LIKE==actionTypeEnum?UserActionTypeEnum.COMMENT_HATE:UserActionTypeEnum.COMMENT_LIKE;
+                UserAction opposeAction = userActionMapper.selectByVideoIdAndCommentIdAndActionTypeAndUserId(bean.getVideoId(),
+                        bean.getCommentId(), opposeTypeEnum.getType(), bean.getUserId());
+                if (opposeAction != null) {
+                    userActionMapper.deleteByActionId(opposeAction.getActionId());
+                }
+
+                if (dbAction != null) {
+                    userActionMapper.deleteByActionId(dbAction.getActionId());
+                } else {
+                    userActionMapper.insert(bean);
+                }
+                changeCount = dbAction==null? Constants.ONE : -Constants.ONE;
+                Integer opposeChangeCount = opposeAction==null? Constants.ZERO: -Constants.ONE;
+                videoCommentMapper.updateCountInfo(bean.getCommentId(), actionTypeEnum.getField(), changeCount,
+                                                        opposeTypeEnum==null?null:opposeTypeEnum.getField(),
+                                                        opposeChangeCount);
                 break;
         }
     }

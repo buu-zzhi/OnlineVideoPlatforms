@@ -5,6 +5,9 @@ import java.util.List;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoComment;
 import com.easylive.entity.query.VideoCommentQuery;
+
+import javax.validation.constraints.NotNull;
+
 /**
  * @Description: 评论 Service
  * @Author: false
@@ -56,4 +59,12 @@ public interface VideoCommentService{
  	 * 根据 CommentId 删除
  	 */
 	Integer deleteVideoCommentByCommentId(Integer commentId);
+
+    void postComment(VideoComment comment, Integer replyCommentId);
+
+    void topComment(Integer commentId, String userId);
+
+    void cancelTopComment(Integer commentId, String userId);
+
+    void deleteComment(@NotNull Integer commentId, String userId);
 }
