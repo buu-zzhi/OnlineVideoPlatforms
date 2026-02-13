@@ -60,6 +60,16 @@ public class UserActionQuery extends BaseQuery {
 
     private Integer[] actionTypeArray;
 
+    private Boolean queryVideoInfo;
+
+    public Boolean getQueryVideoInfo() {
+        return queryVideoInfo;
+    }
+
+    public void setQueryVideoInfo(Boolean queryVideoInfo) {
+        this.queryVideoInfo = queryVideoInfo;
+    }
+
     public Integer[] getActionTypeArray() {
         return actionTypeArray;
     }

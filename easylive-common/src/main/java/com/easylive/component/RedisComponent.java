@@ -52,6 +52,10 @@ public class RedisComponent {
         redisUtils.setex(Constants.REDIS_KEY_TOKEN_WEB + token, tokenUserInfoDto, Constants.REDIS_KEY_EXPIRES_ONE_DAY * 7L);
     }
 
+    public void updateToKenInfo(TokenUserInfoDto tokenUserInfoDto) {
+        redisUtils.setex(Constants.REDIS_KEY_TOKEN_WEB + tokenUserInfoDto.getToken(), tokenUserInfoDto, Constants.REDIS_KEY_EXPIRES_ONE_DAY * 7L);
+    }
+
     public void cleanToken(String token) {
         redisUtils.delete(Constants.REDIS_KEY_TOKEN_WEB + token);
     }

@@ -177,6 +177,12 @@
 		<where>
 			<include refid="base_query_condition"/>
 			<include refid="base_query_condition_extend"/>
+            <if test="query.videoIdArray != null and query.videoIdArray.length>0">
+                and v.video_id in (<foreach collection="query.videoIdArray" separator="," item="item">#{item}</foreach> )
+            </if>
+            <if test="query.excludeVideoIdArray != null and query.excludeVideoIdArray.length>0">
+                and v.video_id not in (<foreach collection="query.excludeVideoIdArray" separator="," item="item">#{item}</foreach> )
+            </if>
 		</where>
 	</sql>
 

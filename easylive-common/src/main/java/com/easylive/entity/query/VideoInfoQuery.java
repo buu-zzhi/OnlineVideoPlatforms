@@ -144,6 +144,26 @@ public class VideoInfoQuery extends BaseQuery {
 
     private Boolean queryUsrInfo;
 
+    private String[] videoIdArray;
+
+    private String[] excludeVideoIdArray;
+
+    public String[] getExcludeVideoIdArray() {
+        return excludeVideoIdArray;
+    }
+
+    public void setExcludeVideoIdArray(String[] excludeVideoIdArray) {
+        this.excludeVideoIdArray = excludeVideoIdArray;
+    }
+
+    public void setVideoIdArray(String[] videoIdArray) {
+        this.videoIdArray = videoIdArray;
+    }
+
+    public String[] getVideoIdArray() {
+        return videoIdArray;
+    }
+
     public Boolean getQueryUsrInfo() {
         return queryUsrInfo;
     }

@@ -99,4 +99,8 @@ public interface UserInfoService{
     void register(@NotEmpty @Email @Size(max = 150) String email, @NotEmpty @Size(max = 20) String nickName, @NotEmpty @Pattern(regexp = Constants.REGEX_PASSWORD) String registerPassword);
 
     TokenUserInfoDto login(String email, String password, String ip);
+
+    UserInfo getUserDetailInfo(String currentUserId, String userId);
+
+    void updateUserInfo(UserInfo userInfo, TokenUserInfoDto tokenUserInfoDto);
 }

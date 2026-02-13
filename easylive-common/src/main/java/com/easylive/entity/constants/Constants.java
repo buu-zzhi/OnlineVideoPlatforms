@@ -55,6 +55,7 @@ public class Constants {
     public static final String REDIS_KEY_VIDEO_PLAY_COUNT_USER = REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE_PREFiX + REDIS_KEY_VIDEO_PLAY_COUNT_USER_PREFiX + "%s:%s";
 
 
+    public static final Integer UPDATE_NICK_NAME_COIN = 5;
 
 
 }

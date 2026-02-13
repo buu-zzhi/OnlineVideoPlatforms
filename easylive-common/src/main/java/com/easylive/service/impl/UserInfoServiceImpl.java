@@ -7,11 +7,15 @@ import java.util.List;
 import com.easylive.component.RedisComponent;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.UserSexEnum;
 import com.easylive.entity.enums.UserStatusEnum;
+import com.easylive.entity.po.UserFocus;
 import com.easylive.entity.query.SimplePage;
 import com.easylive.entity.enums.PageSize;
+import com.easylive.entity.query.UserFocusQuery;
 import com.easylive.exception.BusinessException;
+import com.easylive.mapper.UserFocusMapper;
 import com.easylive.mapper.UserInfoMapper;
 import com.easylive.service.UserInfoService;
 import com.easylive.entity.vo.PaginationResultVO;
@@ -19,7 +23,10 @@ import com.easylive.entity.po.UserInfo;
 import com.easylive.entity.query.UserInfoQuery;
 import com.easylive.utils.CopyTools;
 import com.easylive.utils.StringTools;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
 /**
  * @Description: 用户信息 业务接口实现
@@ -34,8 +41,10 @@ public class UserInfoServiceImpl implements UserInfoService{
 
     @Resource
     private RedisComponent redisComponent;
+    @Autowired
+    private UserFocusMapper<UserFocus, UserFocusQuery> userFocusMapper;
 
-	/**
+    /**
  	 * 根据条件查询列表
  	 */
 	@Override
@@ -203,5 +212,55 @@ public class UserInfoServiceImpl implements UserInfoService{
         TokenUserInfoDto tokenUserInfoDto = CopyTools.copy(userInfo, TokenUserInfoDto.class);
         redisComponent.saveToKenInfo(tokenUserInfoDto);
         return tokenUserInfoDto;
+    }
+
+    @Override
+    public UserInfo getUserDetailInfo(String currentUserId, String userId) {
+        UserInfo userInfo = getUserInfoByUserId(userId);
+        if (userInfo == null) {
+            throw new BusinessException(ResponseCodeEnum.CODE_404);
+        }
+        // 获取点赞数 播放数
+        Integer fansCount = userFocusMapper.selectFansCount(userId);
+        Integer focusCount = userFocusMapper.selectFocusCount(userId);
+        userInfo.setFansCount(fansCount);
+        userInfo.setFocusCount(focusCount);
+        if (currentUserId ==null) {
+            userInfo.setHaveFocus(false);
+        } else {
+            UserFocus userFocus = userFocusMapper.selectByUserIdAndFocusUserId(currentUserId, userId);
+            userInfo.setHaveFocus(userFocus != null);
+        }
+        return userInfo;
+    }
+
+    @Override
+    @Transactional
+    public void updateUserInfo(UserInfo userInfo, TokenUserInfoDto tokenUserInfoDto) {
+        UserInfo dbInfo = userInfoMapper.selectByUserId(userInfo.getUserId());
+        if (!dbInfo.getNickName().equals(userInfo.getNickName()) && dbInfo.getCurrentCoinCount() < Constants.UPDATE_NICK_NAME_COIN) {
+            throw new BusinessException("硬币不足，无法修改昵称");
+        }
+
+        if (!dbInfo.getNickName().equals(userInfo.getNickName())) {
+            Integer count = userInfoMapper.updateCoinCountInfo(userInfo.getUserId(), -Constants.UPDATE_NICK_NAME_COIN);
+            if (count == 0) {
+                throw new BusinessException("硬币不足，无法修改昵称");
+            }
+        }
+
+        userInfoMapper.updateByUserId(userInfo, userInfo.getUserId());
+        Boolean updateTokenInfo = false;
+        if (!userInfo.getAvatar().equals(tokenUserInfoDto.getAvatar()) ) {
+            tokenUserInfoDto.setAvatar(userInfo.getAvatar());
+            updateTokenInfo = true;
+        }
+        if (!userInfo.getNickName().equals(tokenUserInfoDto.getNickName()) ) {
+            tokenUserInfoDto.setNickName(userInfo.getNickName());
+            updateTokenInfo = true;
+        }
+        if (updateTokenInfo) {
+            redisComponent.updateToKenInfo(tokenUserInfoDto);
+        }
     }
 }

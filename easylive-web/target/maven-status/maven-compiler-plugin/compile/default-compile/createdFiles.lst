@@ -7,6 +7,8 @@ com\easylive\web\controller\UserActionController.class
 com\easylive\web\controller\ABaseController.class
 com\easylive\web\controller\SysSettingController.class
 com\easylive\web\controller\VideoDanmuController.class
+com\easylive\web\component\RedisKeyExpirationListener.class
 com\easylive\web\EasyliveWebRunApplication.class
 com\easylive\web\controller\VideoController.class
 com\easylive\web\controller\AccountController.class
+com\easylive\web\controller\UHomeController.class

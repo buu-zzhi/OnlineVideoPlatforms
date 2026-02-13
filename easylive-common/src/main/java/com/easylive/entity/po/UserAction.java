@@ -49,6 +49,12 @@ public class UserAction implements Serializable {
  	 */
 	private String userId;
 
+    /**
+     * 视频的信息
+     */
+    private String videoCover;
+    private String videoName;
+
 	/**
  	 * 操作时间
  	 */
@@ -56,8 +62,23 @@ public class UserAction implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date actionTime;
 
+    public String getVideoCover() {
+        return videoCover;
+    }
 
-	public void setActionId(Integer actionId) {
+    public void setVideoCover(String videoCover) {
+        this.videoCover = videoCover;
+    }
+
+    public String getVideoName() {
+        return videoName;
+    }
+
+    public void setVideoName(String videoName) {
+        this.videoName = videoName;
+    }
+
+    public void setActionId(Integer actionId) {
 		this.actionId = actionId;
 	}
 
