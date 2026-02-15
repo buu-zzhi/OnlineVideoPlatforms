@@ -3,10 +3,12 @@ com\easylive\web\task\ExecuteQueueTask.class
 com\easylive\web\controller\CategoryController.class
 com\easylive\web\controller\FileController.class
 com\easylive\web\controller\UcenterVideoPostController.class
+com\easylive\web\controller\UCenterInteractionController.class
 com\easylive\web\controller\UserActionController.class
 com\easylive\web\controller\ABaseController.class
 com\easylive\web\controller\SysSettingController.class
 com\easylive\web\controller\VideoDanmuController.class
+com\easylive\web\controller\UHomeVideoSeriesController.class
 com\easylive\web\component\RedisKeyExpirationListener.class
 com\easylive\web\EasyliveWebRunApplication.class
 com\easylive\web\controller\VideoController.class

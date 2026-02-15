@@ -14,6 +14,7 @@ com\easylive\entity\config\AppConfig.class
 com\easylive\service\UserVideoSeriesService.class
 com\easylive\utils\JsonUtils.class
 com\easylive\mapper\UserVideoSeriesVideoMapper.class
+com\easylive\entity\vo\UserVideoSeriesDetailVO.class
 com\easylive\entity\constants\Constants.class
 com\easylive\entity\po\UserVideoSeries.class
 com\easylive\entity\constants\ExceptionConstants.class
@@ -77,6 +78,7 @@ com\easylive\service\impl\CategoryInfoServiceImpl.class
 com\easylive\redis\RedisUtils.class
 com\easylive\utils\ProcessUtils.class
 com\easylive\entity\enums\VideoRecommendType.class
+com\easylive\entity\vo\VideoPostEditInfoVO.class
 com\easylive\entity\po\UserFocus.class
 com\easylive\mapper\BaseMapper.class
 com\easylive\entity\vo\VideoStatusCountInfoVO.class

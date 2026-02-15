@@ -439,6 +439,10 @@
         and user_id=#{userId}
 
     </delete>
+    <delete id="deleteByParam">
+        delete from video_info_file_post
+        <include refid="query_condition"/>
+    </delete>
 
     <update id="updateByParam">
         update video_info_file_post

@@ -66,6 +66,7 @@ D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easyliv
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\po\UserAction.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\controller\GlobalExceptionHandlerController.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\service\UserActionService.java
+D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\vo\VideoPostEditInfoVO.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\query\SimplePage.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\redis\RedisUtils.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\service\impl\UserInfoServiceImpl.java
@@ -82,6 +83,7 @@ D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easyliv
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\query\VideoInfoPostQuery.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\utils\StringTools.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\redis\RedisConfig.java
+D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\vo\UserVideoSeriesDetailVO.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\service\impl\VideoCommentServiceImpl.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\service\VideoDanmuService.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\enums\VideoRecommendType.java

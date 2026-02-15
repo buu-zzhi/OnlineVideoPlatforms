@@ -1,10 +1,12 @@
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\VideoDanmuController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\VideoController.java
+D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\UCenterInteractionController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\UHomeController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\EasyliveWebRunApplication.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\ABaseController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\task\ExecuteQueueTask.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\FileController.java
+D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\UHomeVideoSeriesController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\VideoCommentController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\controller\CategoryController.java
 D:\code\java_project\easylive\easylive\easylive-web\src\main\java\com\easylive\web\component\RedisKeyExpirationListener.java

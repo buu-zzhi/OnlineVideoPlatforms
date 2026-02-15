@@ -86,6 +86,10 @@ public class VideoComment implements Serializable {
         this.children = children;
     }
 
+    private String videoName;
+
+    private String videoCover;
+
     private String avatar;
 
     private String nickName;
@@ -96,7 +100,21 @@ public class VideoComment implements Serializable {
 
     private List<VideoComment> children;
 
+    public String getVideoName() {
+        return videoName;
+    }
 
+    public void setVideoName(String videoName) {
+        this.videoName = videoName;
+    }
+
+    public String getVideoCover() {
+        return videoCover;
+    }
+
+    public void setVideoCover(String videoCover) {
+        this.videoCover = videoCover;
+    }
 
     public String getReplyNickName() {
         return replyNickName;

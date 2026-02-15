@@ -29,4 +29,5 @@ public interface VideoInfoMapper<T, P> extends BaseMapper {
      */
     void updateCountInfo(@Param("videoId") String videoId, @Param("field")String field, @Param("changeCount") Integer changeCount);
 
+    void updateByParam(@Param("bean") T t, @Param("query") P p);
 }

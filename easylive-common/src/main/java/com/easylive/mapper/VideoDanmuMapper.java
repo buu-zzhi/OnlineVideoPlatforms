@@ -24,4 +24,5 @@ public interface VideoDanmuMapper<T, P> extends BaseMapper {
  	 */
 	Integer deleteByDanmuId(@Param("danmuId")Integer danmuId);
 
+    void deleteByParam(@Param("query") P p);
 }

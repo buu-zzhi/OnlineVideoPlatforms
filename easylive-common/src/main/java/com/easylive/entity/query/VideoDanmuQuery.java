@@ -66,8 +66,29 @@ public class VideoDanmuQuery extends BaseQuery {
  	 */
 	private Integer time;
 
+    private String videoUserId;
 
-	public void setDanmuId(Integer danmuId) {
+    private Boolean queryVideoInfo;
+
+
+
+    public Boolean getQueryVideoInfo() {
+        return queryVideoInfo;
+    }
+
+    public void setQueryVideoInfo(Boolean queryVideoInfo) {
+        this.queryVideoInfo = queryVideoInfo;
+    }
+
+    public String getVideoUserId() {
+        return videoUserId;
+    }
+
+    public void setVideoUserId(String videoUserId) {
+        this.videoUserId = videoUserId;
+    }
+
+    public void setDanmuId(Integer danmuId) {
 		this.danmuId = danmuId;
 	}
 

@@ -1,13 +1,17 @@
 package com.easylive.web.controller;
 
 import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.VideoStatusEnum;
 import com.easylive.entity.po.VideoInfoFilePost;
 import com.easylive.entity.po.VideoInfoPost;
+import com.easylive.entity.query.VideoInfoFilePostQuery;
 import com.easylive.entity.query.VideoInfoPostQuery;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.vo.ResponseVO;
+import com.easylive.entity.vo.VideoPostEditInfoVO;
 import com.easylive.entity.vo.VideoStatusCountInfoVO;
+import com.easylive.exception.BusinessException;
 import com.easylive.service.VideoInfoFilePostService;
 import com.easylive.service.VideoInfoPostService;
 import com.easylive.service.VideoInfoService;
@@ -111,5 +115,34 @@ public class UcenterVideoPostController extends ABaseController {
                 .inProgressCount(inProgressCount)
                 .build();
         return getSuccessResponseVO(videoStatusCountInfoVO);
+    }
+
+    @RequestMapping("/getVideoByVideoId")
+    public ResponseVO getVideoByVideoId(@NotEmpty String videoId) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        VideoInfoPost videoInfoPost = videoInfoPostService.getVideoInfoPostByVideoId(videoId);
+        if (videoInfoPost == null || !videoInfoPost.getUserId().equals(tokenUserInfoDto.getUserId())) {
+            throw new BusinessException(ResponseCodeEnum.CODE_404);
+        }
+        VideoInfoFilePostQuery videoInfoFilePostQuery = new VideoInfoFilePostQuery();
+        videoInfoFilePostQuery.setVideoId(videoId);
+        videoInfoFilePostQuery.setOrderBy("file_index asc");
+        List<VideoInfoFilePost> videoInfoFilePostList = videoInfoFilePostService.findListByParam(videoInfoFilePostQuery);
+        VideoPostEditInfoVO resultVO = new VideoPostEditInfoVO(videoInfoPost, videoInfoFilePostList);
+        return getSuccessResponseVO(resultVO);
+    }
+
+    @RequestMapping("/saveVideoInteraction")
+    public ResponseVO saveVideoInteraction(@NotEmpty String videoId, String interaction) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        videoInfoService.changeInteraction(videoId,tokenUserInfoDto.getUserId(), interaction);
+        return getSuccessResponseVO(null);
+    }
+
+    @RequestMapping("/deleteVideo")
+    public ResponseVO deleteVideo(@NotEmpty String videoId) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        videoInfoService.deleteVideo(videoId, tokenUserInfoDto.getUserId());
+        return getSuccessResponseVO(null);
     }
 }

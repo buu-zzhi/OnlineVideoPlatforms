@@ -5,6 +5,9 @@ import java.util.List;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoDanmu;
 import com.easylive.entity.query.VideoDanmuQuery;
+
+import javax.validation.constraints.NotNull;
+
 /**
  * @Description: 视频弹幕 Service
  * @Author: false
@@ -58,4 +61,6 @@ public interface VideoDanmuService{
 	Integer deleteVideoDanmuByDanmuId(Integer danmuId);
 
     void saveVideoDanmu(VideoDanmu videoDanmu);
+
+    void deleteDanmu(String userId, @NotNull Integer danmuId);
 }

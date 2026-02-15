@@ -78,7 +78,17 @@ public class VideoCommentQuery extends BaseQuery {
  	 */
 	private Integer likeCount;
 
-	/**
+    private Boolean queryVideoInfo;
+
+    public Boolean getQueryVideoInfo() {
+        return queryVideoInfo;
+    }
+
+    public void setQueryVideoInfo(Boolean queryVideoInfo) {
+        this.queryVideoInfo = queryVideoInfo;
+    }
+
+    /**
  	 * 讨厌数量 查询对象
  	 */
 	private Integer hateCount;

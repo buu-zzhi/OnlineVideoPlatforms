@@ -518,49 +518,49 @@
         update video_info_post v
         <set>
             <if test="bean.videoId != null">
-                video_id = #{bean.videoId},
+                v.video_id = #{bean.videoId},
             </if>
             <if test="bean.videoCover != null">
-                video_cover = #{bean.videoCover},
+                v.video_cover = #{bean.videoCover},
             </if>
             <if test="bean.videoName != null">
-                video_name = #{bean.videoName},
+                v.video_name = #{bean.videoName},
             </if>
             <if test="bean.userId != null">
-                user_id = #{bean.userId},
+                v.user_id = #{bean.userId},
             </if>
             <if test="bean.createTime != null">
-                create_time = #{bean.createTime},
+                v.create_time = #{bean.createTime},
             </if>
             <if test="bean.lastUpdateTime != null">
-                last_update_time = #{bean.lastUpdateTime},
+                v.last_update_time = #{bean.lastUpdateTime},
             </if>
             <if test="bean.pCategoryId != null">
-                p_category_id = #{bean.pCategoryId},
+                v.p_category_id = #{bean.pCategoryId},
             </if>
             <if test="bean.categoryId != null">
-                category_id = #{bean.categoryId},
+                v.category_id = #{bean.categoryId},
             </if>
             <if test="bean.status != null">
-                status = #{bean.status},
+                v.status = #{bean.status},
             </if>
             <if test="bean.postType != null">
-                post_type = #{bean.postType},
+                v.post_type = #{bean.postType},
             </if>
             <if test="bean.originInfo != null">
-                origin_info = #{bean.originInfo},
+                v.origin_info = #{bean.originInfo},
             </if>
             <if test="bean.tags != null">
-                tags = #{bean.tags},
+                v.tags = #{bean.tags},
             </if>
             <if test="bean.introduction != null">
-                introduction = #{bean.introduction},
+                v.introduction = #{bean.introduction},
             </if>
             <if test="bean.interaction != null">
-                interaction = #{bean.interaction},
+                v.interaction = #{bean.interaction},
             </if>
             <if test="bean.duration != null">
-                duration = #{bean.duration},
+                v.duration = #{bean.duration},
             </if>
         </set>
         <include refid="query_condition"/>

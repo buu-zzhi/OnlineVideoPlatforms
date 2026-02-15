@@ -166,7 +166,7 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
         if (!StringTools.isEmpty(videoInfoPost.getVideoId())) {
             //传进来的对象不在数据库中
             VideoInfoPost videoInfoPostDb = videoInfoPostMapper.selectByVideoId(videoInfoPost.getVideoId());
-            if (videoInfoPostDb != null) {
+            if (videoInfoPostDb == null) {
                 throw new BusinessException(ResponseCodeEnum.CODE_600);
             }
             // 判断状态是否支持修改操作
@@ -273,7 +273,7 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
         return !videoInfoPost.getVideoName().equals(dbInfo.getVideoName())
                 || !videoInfoPost.getVideoCover().equals(dbInfo.getVideoCover())
                 || !videoInfoPost.getTags().equals(dbInfo.getTags())
-                || !videoInfoPost.getIntroduction().equals(dbInfo.getIntroduction());
+                || !videoInfoPost.getIntroduction().equals(dbInfo.getIntroduction()==null?"":dbInfo.getIntroduction());
     }
 
     @Override

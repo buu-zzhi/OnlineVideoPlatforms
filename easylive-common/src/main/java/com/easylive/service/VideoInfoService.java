@@ -5,6 +5,9 @@ import java.util.List;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.VideoInfoQuery;
+
+import javax.validation.constraints.NotEmpty;
+
 /**
  * @Description: 视频信息 Service
  * @Author: false
@@ -56,4 +59,8 @@ public interface VideoInfoService{
  	 * 根据 VideoId 删除
  	 */
 	Integer deleteVideoInfoByVideoId(String videoId);
+
+    void changeInteraction(String videoId, String userId, String interaction);
+
+    void deleteVideo(@NotEmpty String videoId, String userId);
 }
