@@ -4,8 +4,10 @@ package com.easylive.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.enums.ResponseCodeEnum;
+import com.easylive.entity.enums.SearchOrderTypeEnum;
 import com.easylive.entity.enums.UserActionTypeEnum;
 import com.easylive.entity.po.UserInfo;
 import com.easylive.entity.po.VideoComment;
@@ -44,6 +46,8 @@ public class UserActionServiceImpl implements UserActionService{
 
     @Resource
     private VideoCommentMapper<VideoComment, VideoCommentQuery> videoCommentMapper;
+    @Autowired
+    private EsSearchComponent esSearchComponent;
 
     /**
  	 * 根据条件查询列表
@@ -173,7 +177,7 @@ public class UserActionServiceImpl implements UserActionService{
                 Integer changeCount = dbAction==null? Constants.ONE : -Constants.ONE;
                 videoInfoMapper.updateCountInfo(bean.getVideoId(), actionTypeEnum.getField(), changeCount);
                 if(actionTypeEnum == UserActionTypeEnum.VIDEO_COLLECT){
-                    // TODO 更新es的收藏列表
+                    esSearchComponent.updateDocCount(videoInfo.getVideoId(), SearchOrderTypeEnum.VIDEO_COLLECT.getField(), changeCount);
                 }
                 break;
             case VIDEO_COIN:

@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.component.RedisComponent;
 import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.enums.ResponseCodeEnum;
+import com.easylive.entity.enums.UserActionTypeEnum;
 import com.easylive.entity.po.*;
 import com.easylive.entity.query.*;
 import com.easylive.entity.enums.PageSize;
@@ -62,6 +64,8 @@ public class VideoInfoServiceImpl implements VideoInfoService{
 
     @Resource
     private VideoCommentMapper<VideoComment, VideoCommentQuery> videoCommentMapper;
+    @Autowired
+    private EsSearchComponent esSearchComponent;
 
     /**
  	 * 根据条件查询列表
@@ -174,7 +178,8 @@ public class VideoInfoServiceImpl implements VideoInfoService{
         SysSettingDto sysSettingDto = redisComponent.getSysSettingDto();
         //TODO 减去用户的硬币
 
-        //TODO 删除es
+        // 删除es
+        esSearchComponent.delDoc(videoId);
 
         // 异步删除视频
         executorService.execute(()-> {
@@ -206,5 +211,10 @@ public class VideoInfoServiceImpl implements VideoInfoService{
                 }
             }
         });
+    }
+
+    @Override
+    public void addReadCount(String videoId) {
+        videoInfoMapper.updateCountInfo(videoId, UserActionTypeEnum.VIDEO_PLAY.getField(), 1);
     }
 }

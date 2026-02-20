@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.component.RedisComponent;
 import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.constants.Constants;
@@ -70,6 +71,9 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
 
     @Resource
     private FFmpegUtils fFmpegUtils;
+
+    @Resource
+    private EsSearchComponent esSearchComponent;
 
     /**
  	 * 根据条件查询列表
@@ -477,6 +481,7 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
             }
         }
         redisComponent.cleanDelFileList(videoId);
-        // TODO 保存信息到es
+
+        esSearchComponent.saveDoc(videoInfo);
     }
 }

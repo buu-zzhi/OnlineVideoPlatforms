@@ -3,8 +3,10 @@ package com.easylive.service.impl;
 
 import java.util.List;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.enums.ResponseCodeEnum;
+import com.easylive.entity.enums.SearchOrderTypeEnum;
 import com.easylive.entity.enums.UserActionTypeEnum;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.SimplePage;
@@ -17,6 +19,7 @@ import com.easylive.service.VideoDanmuService;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoDanmu;
 import com.easylive.entity.query.VideoDanmuQuery;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,8 +37,10 @@ public class VideoDanmuServiceImpl implements VideoDanmuService{
 
     @Resource
     private VideoInfoMapper<VideoInfo, VideoInfoQuery> videoInfoMapper;
+    @Autowired
+    private EsSearchComponent esSearchComponent;
 
-	/**
+    /**
  	 * 根据条件查询列表
  	 */
 	@Override
@@ -129,7 +134,8 @@ public class VideoDanmuServiceImpl implements VideoDanmuService{
         // 更新弹幕数量
         videoInfoMapper.updateCountInfo(videoDanmu.getVideoId(), UserActionTypeEnum.VIDEO_DANMU.getField(), 1);
 
-        //TODO 更新es 弹幕数量
+        //更新es 弹幕数量
+        esSearchComponent.updateDocCount(videoDanmu.getVideoId(), SearchOrderTypeEnum.VIDEO_DANMU.getField(), 1);
     }
 
     @Override

@@ -16,6 +16,7 @@ public class Constants {
     public static final Integer length_30 = 30;
     public static final Long MB_SIZE = 1024 * 1024L;
     public static Integer DEFAULT_COIN_COUNT = 10;
+    public static final Integer HOUR_24 = 24;
     public static final String REGEX_PASSWORD = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d@$!%*#?&]{8,20}$";
 
 
@@ -38,9 +39,14 @@ public class Constants {
 
     public static final String REDIS_KEY_UPLOADING_FILE = REDIS_KEY_PREFIX + "uploading:";
     public static final String REDIS_KEY_SYS_SETTING = REDIS_KEY_PREFIX + "sysSetting:";
+
+    public static final String REDIS_KEY_VIDEO_SEARCH_COUNT = REDIS_KEY_PREFIX + "video:search:";
     // 删除文件集合
     public static final String REDIS_KEY_FILE_DEL = REDIS_KEY_PREFIX  +"file:list:del:";
     public static final String REDIS_KEY_QUEUE_TRANSFER = REDIS_KEY_PREFIX  +"queue:transfer:";
+    public static final String REDIS_KEY_QUEUE_VIDEO_PLAY = REDIS_KEY_PREFIX  +"queue:video:play:";
+
+    public static final String REDIS_KEY_VIDEO_PLAY_COUNT = REDIS_KEY_PREFIX  +"video:playcount:";
 
     // 视频文件编码
     public static final String VIDEO_CODE_HEVC = "hevc";

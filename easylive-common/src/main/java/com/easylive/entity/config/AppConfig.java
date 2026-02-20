@@ -23,6 +23,20 @@ public class AppConfig {
     @Value("${ffmpeg.ffprobe:}")
     private String ffprobePath;
 
+    @Value("${es.host.port:127.0.0.1:9200}")
+    private String esHostPort;
+
+    @Value("${es.index.video.name:easylive_video}")
+    private String esIndexVideoName;
+
+    public String getEsHostPort() {
+        return esHostPort;
+    }
+
+    public String getEsIndexVideoName() {
+        return esIndexVideoName;
+    }
+
     public String getFfprobePath() {
         return ffprobePath;
     }

@@ -1,10 +1,10 @@
 package com.easylive.web.controller;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.component.RedisComponent;
+import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
-import com.easylive.entity.enums.ResponseCodeEnum;
-import com.easylive.entity.enums.UserActionTypeEnum;
-import com.easylive.entity.enums.VideoRecommendType;
+import com.easylive.entity.enums.*;
 import com.easylive.entity.po.UserAction;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.po.VideoInfoFile;
@@ -18,7 +18,6 @@ import com.easylive.exception.BusinessException;
 import com.easylive.service.UserActionService;
 import com.easylive.service.VideoInfoFileService;
 import com.easylive.service.VideoInfoService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/video")
@@ -44,6 +43,8 @@ public class VideoController extends ABaseController {
     private VideoInfoFileService videoInfoFileService;
     @Autowired
     private UserActionService userActionService;
+    @Autowired
+    private EsSearchComponent esSearchComponent;
 
     /*   获取推荐视频列表   */
     @RequestMapping("/loadRecommendVideo")
@@ -113,5 +114,38 @@ public class VideoController extends ABaseController {
 
         return getSuccessResponseVO(redisComponent.reportVideoPlayOnline(fileId, deviceId));
     }
+
+    @RequestMapping("/search")
+    public ResponseVO search(@NotEmpty String keyword, Integer orderType, Integer pageNo) {
+        redisComponent.addKeyWordCount(keyword);
+        PaginationResultVO<VideoInfo> resultVO = esSearchComponent.search(true, keyword, orderType, pageNo, PageSize.SIZE30.getSize());
+        return getSuccessResponseVO(resultVO);
+    }
+
+    @RequestMapping("/getVideoRecommend")
+    public ResponseVO getVideoRecommend(@NotEmpty String keyword, @NotEmpty String videoId) {
+        List<VideoInfo> videoInfoList = esSearchComponent.search(false, keyword, SearchOrderTypeEnum.VIDEO_PLAY.getType(), 1, PageSize.SIZE10.getSize()).getList();
+        videoInfoList = videoInfoList.stream().filter(item -> !item.getVideoId().equals(videoId)).collect(Collectors.toList());
+        return getSuccessResponseVO(videoInfoList);
+    }
+
+    @RequestMapping("/getSearchKeywordTop")
+    public ResponseVO getSearchKeywordTop() {
+        List<String> resultVO = redisComponent.getKeyWordCount(Constants.length_10);
+        return getSuccessResponseVO(resultVO);
+    }
+
+    @RequestMapping("/loadHotVideoList")
+    public ResponseVO loadHotVideoList(Integer pageNo) {
+        VideoInfoQuery videoInfoQuery = new VideoInfoQuery();
+        videoInfoQuery.setPageNo(pageNo);
+        videoInfoQuery.setQueryUsrInfo(true);
+        videoInfoQuery.setOrderBy("play_count desc");
+        videoInfoQuery.setLastPlayHour(Constants.HOUR_24);
+        PaginationResultVO resultVO = videoInfoService.findListByPage(videoInfoQuery);
+        return getSuccessResponseVO(resultVO);
+    }
+
+
 
 }

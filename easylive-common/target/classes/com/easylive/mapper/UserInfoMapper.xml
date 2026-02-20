@@ -152,6 +152,9 @@
 		<where>
 			<include refid="base_query_condition"/>
 			<include refid="base_query_condition_extend"/>
+            <if test="query.userIdList != null and query.userIdList.size()> 0">
+                and user_id in (<foreach collection="query.userIdList" separator="," item="item">#{item}</foreach> )
+            </if>
 		</where>
 	</sql>
 

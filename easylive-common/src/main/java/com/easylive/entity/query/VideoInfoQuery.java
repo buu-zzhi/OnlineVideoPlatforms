@@ -134,7 +134,17 @@ public class VideoInfoQuery extends BaseQuery {
  	 */
 	private Integer recommendType;
 
-	/**
+    private Integer lastPlayHour;
+
+    public Integer getLastPlayHour() {
+        return lastPlayHour;
+    }
+
+    public void setLastPlayHour(Integer lastPlayHour) {
+        this.lastPlayHour = lastPlayHour;
+    }
+
+    /**
  	 * 最后播放时间 查询对象
  	 */
 	private Date lastPlayTime;

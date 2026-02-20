@@ -6,6 +6,7 @@ import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.dto.UploadingFileDto;
+import com.easylive.entity.dto.VideoPlayInfoDto;
 import com.easylive.entity.enums.DateTimePatternEnum;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.po.VideoInfoFile;
@@ -17,6 +18,7 @@ import com.easylive.utils.FFmpegUtils;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.apache.el.parser.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -160,7 +162,16 @@ public class FileController extends ABaseController {
         VideoInfoFile videoInfoFile = videoInfoFileService.getVideoInfoFileByFileId(fileId);
         String filePath = videoInfoFile.getFilePath();
         readFile(response, filePath + "/" + Constants.M3U8_NAME);
-        //TODO 更新视频阅读信息
+        // 更新视频播放信息
+        VideoPlayInfoDto videoPlayInfoDto = new VideoPlayInfoDto();
+        videoPlayInfoDto.setVideoId(videoInfoFile.getVideoId());
+        videoPlayInfoDto.setFileIndex(videoInfoFile.getFileIndex());
+
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        if (tokenUserInfoDto != null) {
+            videoPlayInfoDto.setUserId(tokenUserInfoDto.getUserId());
+        }
+        redisComponent.addVideoPlay(videoPlayInfoDto);
     }
 
     /*  获取视频ts文件   */

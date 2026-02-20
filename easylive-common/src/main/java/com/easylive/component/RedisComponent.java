@@ -5,12 +5,14 @@ import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.dto.UploadingFileDto;
+import com.easylive.entity.dto.VideoPlayInfoDto;
 import com.easylive.entity.enums.DateTimePatternEnum;
 import com.easylive.entity.po.CategoryInfo;
 import com.easylive.entity.po.VideoInfoFilePost;
 import com.easylive.redis.RedisUtils;
 import com.easylive.utils.DateUtils;
 import com.easylive.utils.StringTools;
+import org.joda.time.DateTime;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -167,7 +169,7 @@ public class RedisComponent {
     }
 
     public Integer reportVideoPlayOnline(String fileId, String deviceId) {
-        // user:fileId:deviceId
+        // user:fileId:deviceId  用来判断当前设备是否已经加进观看人数中
         String userPlayOnlineKey = String.format(Constants.REDIS_KEY_VIDEO_PLAY_COUNT_USER, fileId, deviceId);
         //count:fileId
         String playOnlineCountKey = String.format(Constants.REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE, fileId);
@@ -183,5 +185,26 @@ public class RedisComponent {
     }
     public void decrementPlayOnlineCount(String key) {
         redisUtils.decrement(key);
+    }
+
+    public void addKeyWordCount(String keyword) {
+        redisUtils.zaddCount(Constants.REDIS_KEY_VIDEO_SEARCH_COUNT, keyword);
+    }
+
+    public List<String> getKeyWordCount(Integer top) {
+        return redisUtils.getZSetList(Constants.REDIS_KEY_VIDEO_SEARCH_COUNT, top - 1);
+    }
+
+    public void addVideoPlay(VideoPlayInfoDto videoPlayInfoDto) {
+        redisUtils.lpush(Constants.REDIS_KEY_QUEUE_VIDEO_PLAY, videoPlayInfoDto, null);
+    }
+
+    public VideoPlayInfoDto getVideoPlayFromVideoPlayQueue() {
+        return (VideoPlayInfoDto) redisUtils.rpop(Constants.REDIS_KEY_QUEUE_VIDEO_PLAY);
+    }
+
+    public void recordVideoPlayCount(String videoId) {
+        String date = DateUtils.format(new Date(), DateTimePatternEnum.YYYY_MM_DD.getPattern());
+        redisUtils.incrementex(Constants.REDIS_KEY_VIDEO_PLAY_COUNT + date + ":" + videoId, Constants.REDIS_KEY_EXPIRES_ONE_DAY*2L);
     }
 }

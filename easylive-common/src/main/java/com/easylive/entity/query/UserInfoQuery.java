@@ -1,6 +1,7 @@
 package com.easylive.entity.query;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -118,8 +119,17 @@ public class UserInfoQuery extends BaseQuery {
 
 	private String avatarFuzzy;
 
+    private List<String> userIdList;
 
-	public void setUserId(String userId) {
+    public List<String> getUserIdList() {
+        return userIdList;
+    }
+
+    public void setUserIdList(List<String> userIdList) {
+        this.userIdList = userIdList;
+    }
+
+    public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
