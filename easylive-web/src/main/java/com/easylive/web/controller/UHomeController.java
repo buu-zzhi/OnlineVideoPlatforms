@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.enums.PageSize;
@@ -51,6 +52,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/updateUserInfo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO updateUserInfo(@NotEmpty @Size(max=20) String nickName,
                                      @NotEmpty @Size(max=100) String avatar,
                                      @NotNull Integer sex,
@@ -73,6 +75,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/saveTheme")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO saveTheme(@NotNull @Min(1) @Max(10) Integer theme) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         UserInfo userInfo = new UserInfo();
@@ -82,6 +85,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/focus")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO focus(@NotEmpty String focusUserId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userFocusService.focusUser(tokenUserInfoDto.getUserId(), focusUserId);
@@ -89,6 +93,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/cancelFocus")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO cancelFocus(@NotEmpty String focusUserId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userFocusService.cancelFocusUser(tokenUserInfoDto.getUserId(), focusUserId);
@@ -96,6 +101,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/loadFocusList")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO loadFocusList(Integer pageNo) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         UserFocusQuery focusQuery = new UserFocusQuery();
@@ -109,6 +115,7 @@ public class UHomeController extends ABaseController {
     }
 
     @RequestMapping("/loadFansList")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO loadFansList(Integer pageNo) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         UserFocusQuery focusQuery = new UserFocusQuery();

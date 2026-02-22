@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.VideoStatusEnum;
@@ -31,6 +32,7 @@ import java.util.List;
 @RequestMapping("/ucenter")
 @Validated
 @Slf4j
+@GlobalInterceptor(checkLogin = true)
 public class UcenterVideoPostController extends ABaseController {
     @Resource
     private VideoInfoPostService videoInfoPostService;

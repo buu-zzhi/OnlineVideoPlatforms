@@ -66,6 +66,8 @@ public class VideoInfoServiceImpl implements VideoInfoService{
     private VideoCommentMapper<VideoComment, VideoCommentQuery> videoCommentMapper;
     @Autowired
     private EsSearchComponent esSearchComponent;
+    @Resource
+    private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
 
     /**
  	 * 根据条件查询列表
@@ -176,7 +178,8 @@ public class VideoInfoServiceImpl implements VideoInfoService{
         videoInfoPostMapper.deleteByVideoId(videoId);
 
         SysSettingDto sysSettingDto = redisComponent.getSysSettingDto();
-        //TODO 减去用户的硬币
+        // 减去用户的硬币
+        userInfoMapper.updateCoinCountInfo(dbInfo.getUserId(), -sysSettingDto.getPostVideoCoinCount());
 
         // 删除es
         esSearchComponent.delDoc(videoId);

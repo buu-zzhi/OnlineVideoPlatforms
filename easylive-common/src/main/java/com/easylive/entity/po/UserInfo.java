@@ -112,6 +112,8 @@ public class UserInfo implements Serializable {
     private Integer playCount;
     private Boolean haveFocus;
 
+
+
     public Integer getFansCount() {
         return fansCount;
     }

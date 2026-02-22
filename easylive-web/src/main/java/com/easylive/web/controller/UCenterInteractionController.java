@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.VideoCommentQuery;
@@ -24,6 +25,7 @@ import java.util.List;
 @RequestMapping("/ucenter")
 @Validated
 @Slf4j
+@GlobalInterceptor(checkLogin = true)
 public class UCenterInteractionController extends ABaseController{
 
     @Resource

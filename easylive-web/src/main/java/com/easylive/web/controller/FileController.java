@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.component.RedisComponent;
 import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.constants.Constants;
@@ -18,7 +19,6 @@ import com.easylive.utils.FFmpegUtils;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.el.parser.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,6 +90,7 @@ public class FileController extends ABaseController {
      * @param chunks  视频的分片数
      */
     @RequestMapping("/preUploadVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO preUploadVideo(@NotEmpty String fileName, @NotNull Integer chunks) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         String uploadId = redisComponent.savePreVideoFileInfo(tokenUserInfoDto.getUserId(), fileName, chunks);
@@ -98,6 +99,7 @@ public class FileController extends ABaseController {
 
     /*  上传视频文件   */
     @RequestMapping("/uploadVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO uploadVideo(@NotNull MultipartFile chunkFile, @NotNull Integer chunkIndex, @NotEmpty String uploadId) throws IOException {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         UploadingFileDto fileDto = redisComponent.getUploadVideoFile(tokenUserInfoDto.getUserId(), uploadId);
@@ -125,6 +127,7 @@ public class FileController extends ABaseController {
     }
 
     @RequestMapping("/delUploadVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO delUploadVideo(@NotEmpty String uploadId) throws IOException {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         UploadingFileDto fileDto = redisComponent.getUploadVideoFile(tokenUserInfoDto.getUserId(), uploadId);
@@ -138,6 +141,7 @@ public class FileController extends ABaseController {
 
     /*  上传封面图片   */
     @RequestMapping("/uploadImage")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO uploadImage(@NotNull MultipartFile file, @NotNull Boolean createThumbnail) throws IOException {
         String day = DateUtils.format(new Date(), DateTimePatternEnum.YYYYMM.getPattern());
         String folder = appConfig.getProjectFolder() + Constants.FILE_FOLDER + Constants.FILE_COVER + day;

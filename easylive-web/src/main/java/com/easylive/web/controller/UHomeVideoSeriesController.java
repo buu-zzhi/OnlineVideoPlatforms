@@ -1,5 +1,6 @@
 package com.easylive.web.controller;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.po.UserVideoSeries;
@@ -21,9 +22,7 @@ import javax.annotation.Resource;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -44,6 +43,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 保存或修改系列
      */
     @RequestMapping("/saveVideoSeries")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO saveVideoSeries(@NotEmpty @Size(max=100)String seriesName,
                                       @Size(max=200) String seriesDescription,
                                       Integer seriesId,
@@ -63,6 +63,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 删除系列
      */
     @RequestMapping("/delVideoSeries")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO delVideoSeries(@NotNull Integer seriesId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userVideoSeriesService.delVideoSeries(tokenUserInfoDto.getUserId(), seriesId);
@@ -81,6 +82,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 修改系列的集合
      */
     @RequestMapping("/changeVideoSeriesSort")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO changeVideoSeriesSort(@NotEmpty String seriesIds) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userVideoSeriesService.changeVideoSeriesSort(tokenUserInfoDto.getUserId(), seriesIds);
@@ -119,6 +121,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 往系列中添加视频
      */
     @RequestMapping("/saveSeriesVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO saveSeriesVideo(@NotNull Integer seriesId, @NotEmpty String videoIds) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userVideoSeriesService.saveSeriesVideo(tokenUserInfoDto.getUserId(), seriesId, videoIds);
@@ -128,6 +131,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 删除系列中的视频
      */
     @RequestMapping("/delSeriesVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO delSeriesVideo(@NotNull Integer seriesId, @NotEmpty String videoId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         userVideoSeriesService.delSeriesVideo(tokenUserInfoDto.getUserId(), seriesId, videoId);
@@ -138,6 +142,7 @@ public class UHomeVideoSeriesController extends ABaseController{
      * 查询可以添加到系列中的视频列表
      */
     @RequestMapping("/loadAllVideo")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO loadAllVideo(Integer seriesId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         VideoInfoQuery infoQuery = new VideoInfoQuery();

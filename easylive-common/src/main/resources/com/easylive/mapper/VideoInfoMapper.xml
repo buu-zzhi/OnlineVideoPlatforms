@@ -186,6 +186,9 @@
             <if test="query.lastPlayHour != null">
                 <![CDATA[ and v.last_play_time >= date_sub(now(), interval #{query.lastPlayHour} hour)]]>
             </if>
+             <if test="query.categoryOrPCategoryId != null">
+                 and v.category_id=#{query.categoryOrPCategoryId} or v.p_category_id=#{query.categoryOrPCategoryId}
+             </if>
 		</where>
 	</sql>
 
@@ -608,8 +611,11 @@
 		<include refid="base_column_list"/> 
 		from video_info v where v.video_id =#{videoId}
 	</select>
+    <select id="selectSumCountInfo" resultType="com.easylive.entity.dto.CountInfoDto">
+        select ifnull(sum(play_count),0) playCount, ifnull(sum(like_count),0) likeCount from video_info where user_id=#{userId}
+    </select>
 
-	<!-- 根据 VideoId 更新 -->
+    <!-- 根据 VideoId 更新 -->
 	<update id="updateByVideoId" parameterType="com.easylive.entity.po.VideoInfo">
 		update video_info
 		<set>

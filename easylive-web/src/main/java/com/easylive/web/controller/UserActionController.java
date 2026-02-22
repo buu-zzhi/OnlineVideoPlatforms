@@ -1,5 +1,8 @@
 package com.easylive.web.controller;
 
+import com.easylive.annotation.RecordUserMessage;
+import com.easylive.entity.enums.MessageTypeEnum;
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.po.UserAction;
 import com.easylive.entity.vo.ResponseVO;
@@ -23,6 +26,8 @@ public class UserActionController extends  ABaseController {
     }
 
     @RequestMapping("/doAction")
+    @RecordUserMessage(messageType = MessageTypeEnum.LIKE)
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO doAction(@NotEmpty String videoId,
                                @NotNull Integer actionType,
                                 @Max(2) @Min(1) Integer actionCount,

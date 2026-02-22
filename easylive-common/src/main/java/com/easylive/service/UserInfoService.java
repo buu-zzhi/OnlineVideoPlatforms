@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.dto.UserCountInfoDto;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.UserInfo;
 import com.easylive.entity.query.UserInfoQuery;
@@ -103,4 +104,6 @@ public interface UserInfoService{
     UserInfo getUserDetailInfo(String currentUserId, String userId);
 
     void updateUserInfo(UserInfo userInfo, TokenUserInfoDto tokenUserInfoDto);
+
+    UserCountInfoDto getUserCountInfo(String userId);
 }

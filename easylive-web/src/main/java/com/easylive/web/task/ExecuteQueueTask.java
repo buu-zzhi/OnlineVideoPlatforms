@@ -9,6 +9,7 @@ import com.easylive.entity.po.VideoInfoFilePost;
 import com.easylive.entity.po.VideoInfoPost;
 import com.easylive.service.VideoInfoPostService;
 import com.easylive.service.VideoInfoService;
+import com.easylive.service.VideoPlayHistoryService;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,9 @@ public class ExecuteQueueTask {
     private VideoInfoService videoInfoService;
     @Autowired
     private EsSearchComponent esSearchComponent;
+
+    @Resource
+    private VideoPlayHistoryService videoPlayHistoryService;
 
     // @PostConstruct会在Bean注入完成后自动执行
     @PostConstruct
@@ -67,7 +71,8 @@ public class ExecuteQueueTask {
                     videoInfoService.addReadCount(videoPlayInfoDto.getVideoId());
 
                     if (!StringTools.isEmpty(videoPlayInfoDto.getUserId())) {
-                        // TODO 记录历史
+                        // 记录历史播放
+                        videoPlayHistoryService.saveHistory(videoPlayInfoDto.getUserId(), videoPlayInfoDto.getVideoId(), videoPlayInfoDto.getFileIndex());
                     }
 
                     // 按天记录视频播放

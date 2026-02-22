@@ -8,12 +8,16 @@ import com.easylive.component.RedisComponent;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.query.SimplePage;
 import com.easylive.entity.enums.PageSize;
+import com.easylive.entity.query.VideoInfoQuery;
 import com.easylive.exception.BusinessException;
 import com.easylive.mapper.CategoryInfoMapper;
+import com.easylive.mapper.VideoInfoMapper;
 import com.easylive.service.CategoryInfoService;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.CategoryInfo;
 import com.easylive.entity.query.CategoryInfoQuery;
+import com.easylive.service.VideoInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 /**
@@ -29,7 +33,10 @@ public class CategoryInfoServiceImpl implements CategoryInfoService{
 
     @Resource
     private RedisComponent redisComponent;
-	/**
+    @Autowired
+    private VideoInfoService videoInfoService;
+
+    /**
  	 * 根据条件查询列表
  	 */
 	@Override
@@ -164,7 +171,14 @@ public class CategoryInfoServiceImpl implements CategoryInfoService{
 
     @Override
     public void delCategory(Integer categoryId) {
-        //TODO 查询分类下是否有视频
+        // 查询分类下是否有视频
+        VideoInfoQuery videoInfoQuery = new VideoInfoQuery();
+        videoInfoQuery.setCategoryOrPCategoryId(categoryId);
+        Integer count = videoInfoService.findCountByParam(videoInfoQuery);
+        if (count > 0) {
+            throw new BusinessException("分类下有视频信息，不允许删除");
+        }
+
         CategoryInfoQuery categoryInfoQuery = new CategoryInfoQuery();
         categoryInfoQuery.setCategoryIdOrPCategoryId(categoryId);
         categoryInfoMapper.deleteByParam(categoryInfoQuery);

@@ -4,10 +4,12 @@ import com.easylive.component.RedisComponent;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.constants.ExceptionConstants;
 import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.dto.UserCountInfoDto;
 import com.easylive.entity.vo.ResponseVO;
 import com.easylive.exception.BaseException;
 import com.easylive.service.UserInfoService;
 import com.easylive.utils.StringTools;
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.wf.captcha.SpecCaptcha;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.Response;
@@ -80,7 +82,6 @@ public class AccountController extends ABaseController {
             String ip = getIpAddr();
             TokenUserInfoDto tokenUserInfoDto = userInfoService.login(email, password, ip);
             saveToken2Cookie(response, tokenUserInfoDto.getToken());
-            // TODO 设置粉丝数 硬币数 关注数
             return getSuccessResponseVO(tokenUserInfoDto);
         } finally {
             // 清除验证码 和 删除cookie中已有的管理员token
@@ -117,5 +118,13 @@ public class AccountController extends ABaseController {
     public ResponseVO logout(HttpServletResponse response) {
         cleanCookie(response);
         return getSuccessResponseVO(null);
+    }
+
+    @RequestMapping("/getUserCountInfo")
+    @GlobalInterceptor(checkLogin = true)
+    public ResponseVO getUserCountInfo() {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
+        UserCountInfoDto userCountInfoDto = userInfoService.getUserCountInfo(tokenUserInfoDto.getUserId());
+        return getSuccessResponseVO(userCountInfoDto);
     }
 }

@@ -18,18 +18,12 @@ import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.dto.UploadingFileDto;
 import com.easylive.entity.enums.*;
-import com.easylive.entity.po.VideoInfo;
-import com.easylive.entity.po.VideoInfoFile;
-import com.easylive.entity.po.VideoInfoFilePost;
+import com.easylive.entity.po.*;
 import com.easylive.entity.query.*;
 import com.easylive.exception.BusinessException;
-import com.easylive.mapper.VideoInfoFileMapper;
-import com.easylive.mapper.VideoInfoFilePostMapper;
-import com.easylive.mapper.VideoInfoMapper;
-import com.easylive.mapper.VideoInfoPostMapper;
+import com.easylive.mapper.*;
 import com.easylive.service.VideoInfoPostService;
 import com.easylive.entity.vo.PaginationResultVO;
-import com.easylive.entity.po.VideoInfoPost;
 import com.easylive.utils.CopyTools;
 import com.easylive.utils.FFmpegUtils;
 import com.easylive.utils.StringTools;
@@ -74,6 +68,9 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
 
     @Resource
     private EsSearchComponent esSearchComponent;
+
+    @Resource
+    private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
 
     /**
  	 * 根据条件查询列表
@@ -447,7 +444,8 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService{
         if (dbVideoInfo == null) {
             // 第一次发布视频
             SysSettingDto sysSettingDto = redisComponent.getSysSettingDto();
-            // TODO 给用户加积分
+            // 给用户加硬币
+            userInfoMapper.updateCoinCountInfo(dbVideoInfo.getUserId(), sysSettingDto.getPostVideoCoinCount());
         }
 
         // 更新发布信息到正式表

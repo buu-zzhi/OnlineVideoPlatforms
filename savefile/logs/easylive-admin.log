@@ -1,448 +1,268 @@
-2026-02-20 11:33:59 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarting][55]-> Starting EasyliveAdminRunApplication using Java 22.0.2 on liang_qiongyin with PID 14896 (D:\code\java_project\easylive\easylive\easylive-admin\target\classes started by liang in D:\code\java_project\easylive\easylive)
-2026-02-20 11:33:59 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
-2026-02-20 11:33:59 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 4 ms. Found 0 Elasticsearch repository interfaces.
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-02-20 11:34:00 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
-2026-02-20 11:34:00 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7070 (http)
-2026-02-20 11:34:00 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7070"]
-2026-02-20 11:34:00 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
-2026-02-20 11:34:00 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
-2026-02-20 11:34:00 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
-2026-02-20 11:34:00 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1204 ms
-2026-02-20 11:34:01 [DEBUG][io.lettuce.core.resource.AddressResolverGroupProvider][<clinit>][37]-> Starting without optional netty's non-blocking DNS resolver library
-2026-02-20 11:34:01 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<clinit>][122]-> -Dio.netty.eventLoopThreads: 16
-2026-02-20 11:34:01 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
-2026-02-20 11:34:01 [DEBUG][io.lettuce.core.event.jfr.EventRecorderHolder][<clinit>][47]-> Starting with JFR support
-2026-02-20 11:34:01 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<init>][227]-> LatencyUtils/HdrUtils are not available, metrics are disabled
-2026-02-20 11:34:01 [DEBUG][com.zaxxer.hikari.HikariConfig][attemptFromContextLoader][971]-> Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528
-2026-02-20 11:34:02 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
-2026-02-20 11:34:02 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
-2026-02-20 11:34:02 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Starting ProtocolHandler ["http-nio-7070"]
-2026-02-20 11:34:02 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][start][220]-> Tomcat started on port(s): 7070 (http) with context path ''
-2026-02-20 11:34:02 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
-2026-02-20 11:34:02 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
-2026-02-20 11:34:02 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarted][61]-> Started EasyliveAdminRunApplication in 2.939 seconds (JVM running for 3.612)
-2026-02-20 11:34:08 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-20 11:34:08 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][525]-> Initializing Servlet 'dispatcherServlet'
-2026-02-20 11:34:08 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][547]-> Completed initialization in 1 ms
-2026-02-20 11:34:08 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.RedisClient][connectStandaloneAsync][273]-> Trying to get a Redis connection for: redis://localhost/2?timeout=2s
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.KqueueProvider][<clinit>][73]-> Starting without optional kqueue library
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.IOUringProvider][<clinit>][75]-> Starting without optional io_uring library
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.EpollProvider][<clinit>][76]-> Starting without optional epoll library
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][allocate][112]-> Allocating executor io.netty.channel.nio.NioEventLoopGroup
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.channel.nio.NioEventLoopGroup
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][addReference][128]-> Adding reference to io.netty.channel.nio.NioEventLoopGroup@ece22ac, existing ref count 0
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.RedisClient][lambda$getSocketAddressSupplier$14][736]-> Resolved SocketAddress localhost/<unresolved>:6379 using redis://localhost/2?timeout=2s
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.AbstractRedisClient][initializeChannelAsync0][401]-> Connecting to Redis at localhost/<unresolved>:6379
-2026-02-20 11:34:08 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRegistered][206]-> [channel=0x5409872e, [id: 0x5bab8f09] (inactive), epid=0x1, chid=0x1] channelRegistered()
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 30 bytes, 1 commands in the stack
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='ERR unknown command 'HELLO''], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 7 bytes, 1 commands in the stack
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PING, output=StatusOutput [output=PONG, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=SELECT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][310]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][462]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][467]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] activating endpoint
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][549]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands()
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][564]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelActive][188]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][321]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.AbstractRedisClient][lambda$null$5][439]-> Connecting to Redis at localhost/<unresolved>:6379: Success
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:09 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:09 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@18172527, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PSETEX, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PSETEX, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:27 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=DEL, output=IntegerOutput [output=1, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:27 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@41b17bfd, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1103]-> HikariCPDatasource - configuration:
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> allowPoolSuspension................................false
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> autoCommit................................true
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> catalog................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionInitSql................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionTestQuery................................"SELECT 1"
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionTimeout................................30000
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSource................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceClassName................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceJNDI................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceProperties................................{password=<masked>}
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> driverClassName................................"com.mysql.cj.jdbc.Driver"
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> exceptionOverrideClassName................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> healthCheckProperties................................{}
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> healthCheckRegistry................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> idleTimeout................................180000
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> initializationFailTimeout................................1
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> isolateInternalQueries................................false
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> jdbcUrl................................jdbc:mysql://localhost:3306/easylive?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> keepaliveTime................................0
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> leakDetectionThreshold................................0
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> maxLifetime................................1800000
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> maximumPoolSize................................10
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> metricRegistry................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> metricsTrackerFactory................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> minimumIdle................................5
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> password................................<masked>
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> poolName................................"HikariCPDatasource"
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> readOnly................................false
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> registerMbeans................................false
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> scheduledExecutor................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> schema................................none
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> threadFactory................................internal
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> transactionIsolation................................default
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> username................................"root"
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> validationTimeout................................5000
-2026-02-20 11:34:48 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][110]-> HikariCPDatasource - Starting...
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][checkFailFast][565]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@e7350b5
-2026-02-20 11:34:48 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][123]-> HikariCPDatasource - Start completed.
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=1, active=1, idle=0, waiting=0)
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=1, active=1, idle=0, waiting=0)
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e9be56a
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fa6ef51
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@ed3111e
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f89101e
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@76b03fef
-2026-02-20 11:34:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After adding stats (total=6, active=1, idle=5, waiting=0)
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:34:48 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=DEL, output=IntegerOutput [output=0, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:34:48 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:35:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:35:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:35:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:35:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:35:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:35:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:36:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:36:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:36:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:36:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:36:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:36:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:37:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:37:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:37:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:37:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=6, active=0, idle=6, waiting=0)
-2026-02-20 11:37:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:37:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:37:48 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@76b03fef: (connection has passed idleTimeout)
-2026-02-20 11:37:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:38:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:38:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:38:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:38:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:38:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:38:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:39:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:39:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:39:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:39:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:39:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:39:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:40:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:40:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:40:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:40:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:40:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:40:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:41:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:41:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:41:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:41:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:41:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:41:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:42:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:42:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:42:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:42:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:42:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:42:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@5ace8f02, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=LRANGE, output=ValueListOutput [output=[], error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] write() done
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=DEL, output=IntegerOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 4 bytes, 1 commands in the stack
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
-2026-02-20 11:43:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=DEL, output=IntegerOutput [output=0, error='null'], commandType=io.lettuce.core.protocol.Command]
-2026-02-20 11:43:00 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
-2026-02-20 11:43:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:43:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:43:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:43:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:43:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:43:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:44:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:44:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:44:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:44:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:44:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:44:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:45:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:45:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:45:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:45:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:45:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:45:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:46:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:46:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:46:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:46:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:46:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:46:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:47:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:47:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:47:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:47:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:47:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:47:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:48:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:48:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:48:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:48:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:48:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:48:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:49:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:49:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:49:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:49:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:49:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:49:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:50:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:50:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:50:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:50:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:50:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:50:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:51:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:51:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:51:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:51:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:51:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:51:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:52:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:52:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:52:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:52:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:52:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:52:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:53:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:53:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:53:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:53:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:53:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:53:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:54:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:54:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:54:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:54:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:54:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:54:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:55:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:55:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:55:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:55:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:55:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:55:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:56:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:56:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:56:18 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:56:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:56:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:56:48 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:57:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:57:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:57:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:57:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:57:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:57:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:58:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:58:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:58:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:58:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:58:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:58:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:59:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:59:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:59:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 11:59:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:59:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 11:59:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:00:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:00:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:00:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:00:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:00:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:00:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:01:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:01:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:01:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:01:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:01:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:01:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:02:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:02:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:02:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:02:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:02:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:02:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:03:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:03:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:03:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:03:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:03:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:03:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:04:05 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@e7350b5: (connection has passed maxLifetime)
-2026-02-20 12:04:05 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@57b3d8f6
-2026-02-20 12:04:15 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5f89101e: (connection has passed maxLifetime)
-2026-02-20 12:04:15 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dcd846d
-2026-02-20 12:04:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:04:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:04:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:04:32 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3fa6ef51: (connection has passed maxLifetime)
-2026-02-20 12:04:32 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@6427cbd5
-2026-02-20 12:04:38 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7e9be56a: (connection has passed maxLifetime)
-2026-02-20 12:04:38 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@41019d01
-2026-02-20 12:04:45 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@ed3111e: (connection has passed maxLifetime)
-2026-02-20 12:04:45 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@47e1ee9d
-2026-02-20 12:04:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:04:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:04:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:05:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:05:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:05:19 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:05:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:05:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:05:49 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
-2026-02-20 12:06:00 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
-2026-02-20 12:06:00 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
-2026-02-20 12:06:00 [INFO][com.zaxxer.hikari.HikariDataSource][close][350]-> HikariCPDatasource - Shutdown initiated...
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before shutdown stats (total=5, active=0, idle=5, waiting=0)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@57b3d8f6: (connection evicted)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1dcd846d: (connection evicted)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6427cbd5: (connection evicted)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@41019d01: (connection evicted)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@47e1ee9d: (connection evicted)
-2026-02-20 12:06:00 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After shutdown stats (total=0, active=0, idle=0, waiting=0)
-2026-02-20 12:06:00 [INFO][com.zaxxer.hikari.HikariDataSource][close][352]-> HikariCPDatasource - Shutdown completed.
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.RedisChannelHandler][closeAsync][141]-> closeAsync()
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][closeAsync][590]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] closeAsync()
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.AbstractRedisClient][shutdownAsync][539]-> Initiate shutdown (100, 100, MILLISECONDS)
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][344]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive()
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelInactive$3][504]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1] deactivating endpoint handler
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][doRelease][281]-> Release executor io.netty.channel.nio.NioEventLoopGroup@ece22ac
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][368]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive() done
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][196]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelInactive()
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][207]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] Reconnect scheduling disabled
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelUnregistered][227]-> [channel=0x5409872e, /127.0.0.1:12002 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelUnregistered()
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.resource.DefaultClientResources][shutdown][735]-> Initiate shutdown (0, 2, SECONDS)
-2026-02-20 12:06:00 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][shutdown][317]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-23 00:19:06 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
+2026-02-23 00:19:06 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarting][55]-> Starting EasyliveAdminRunApplication using Java 22.0.2 on liang_qiongyin with PID 13836 (D:\code\java_project\easylive\easylive\easylive-admin\target\classes started by liang in D:\code\java_project\easylive\easylive)
+2026-02-23 00:19:06 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 6 ms. Found 0 Elasticsearch repository interfaces.
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 0 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-23 00:19:06 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-02-23 00:19:07 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7070 (http)
+2026-02-23 00:19:07 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7070"]
+2026-02-23 00:19:07 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
+2026-02-23 00:19:07 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-02-23 00:19:07 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
+2026-02-23 00:19:07 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1394 ms
+2026-02-23 00:19:07 [DEBUG][io.lettuce.core.resource.AddressResolverGroupProvider][<clinit>][37]-> Starting without optional netty's non-blocking DNS resolver library
+2026-02-23 00:19:07 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<clinit>][122]-> -Dio.netty.eventLoopThreads: 16
+2026-02-23 00:19:07 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-02-23 00:19:07 [DEBUG][io.lettuce.core.event.jfr.EventRecorderHolder][<clinit>][47]-> Starting with JFR support
+2026-02-23 00:19:07 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<init>][227]-> LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-02-23 00:19:07 [DEBUG][com.zaxxer.hikari.HikariConfig][attemptFromContextLoader][971]-> Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528
+2026-02-23 00:19:09 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
+2026-02-23 00:19:09 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
+2026-02-23 00:19:09 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Starting ProtocolHandler ["http-nio-7070"]
+2026-02-23 00:19:09 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][start][220]-> Tomcat started on port(s): 7070 (http) with context path ''
+2026-02-23 00:19:09 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
+2026-02-23 00:19:09 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
+2026-02-23 00:19:09 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarted][61]-> Started EasyliveAdminRunApplication in 3.712 seconds (JVM running for 4.361)
+2026-02-23 00:19:24 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-23 00:19:24 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][525]-> Initializing Servlet 'dispatcherServlet'
+2026-02-23 00:19:24 [INFO][org.springframework.web.servlet.DispatcherServlet][initServletBean][547]-> Completed initialization in 2 ms
+2026-02-23 00:19:24 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.RedisClient][connectStandaloneAsync][273]-> Trying to get a Redis connection for: redis://localhost/2?timeout=2s
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.KqueueProvider][<clinit>][73]-> Starting without optional kqueue library
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.IOUringProvider][<clinit>][75]-> Starting without optional io_uring library
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.EpollProvider][<clinit>][76]-> Starting without optional epoll library
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][allocate][112]-> Allocating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.channel.nio.NioEventLoopGroup
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][addReference][128]-> Adding reference to io.netty.channel.nio.NioEventLoopGroup@26fe9321, existing ref count 0
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.RedisClient][lambda$getSocketAddressSupplier$14][736]-> Resolved SocketAddress localhost/<unresolved>:6379 using redis://localhost/2?timeout=2s
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.AbstractRedisClient][initializeChannelAsync0][401]-> Connecting to Redis at localhost/<unresolved>:6379
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRegistered][206]-> [channel=0xb86c02c4, [id: 0xc77cb8bf] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 30 bytes, 1 commands in the stack
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='ERR unknown command 'HELLO''], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=PING, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 7 bytes, 1 commands in the stack
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=PING, output=StatusOutput [output=PONG, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, [AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]], promise)
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=SELECT, output=StatusOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 5 bytes, 1 commands in the stack
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=SELECT, output=StatusOutput [output=OK, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][310]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][462]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelActive$1][467]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] activating endpoint
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][549]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands()
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][flushCommands][564]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelActive][188]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelActive][321]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.AbstractRedisClient][lambda$null$5][439]-> Connecting to Redis at localhost/<unresolved>:6379: Success
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@6f0bad07, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1103]-> HikariCPDatasource - configuration:
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> allowPoolSuspension................................false
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> autoCommit................................true
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> catalog................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionInitSql................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionTestQuery................................"SELECT 1"
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> connectionTimeout................................30000
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSource................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceClassName................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceJNDI................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> dataSourceProperties................................{password=<masked>}
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> driverClassName................................"com.mysql.cj.jdbc.Driver"
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> exceptionOverrideClassName................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> healthCheckProperties................................{}
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> healthCheckRegistry................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> idleTimeout................................180000
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> initializationFailTimeout................................1
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> isolateInternalQueries................................false
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> jdbcUrl................................jdbc:mysql://localhost:3306/easylive?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> keepaliveTime................................0
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> leakDetectionThreshold................................0
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> maxLifetime................................1800000
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> maximumPoolSize................................10
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> metricRegistry................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> metricsTrackerFactory................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> minimumIdle................................5
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> password................................<masked>
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> poolName................................"HikariCPDatasource"
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> readOnly................................false
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> registerMbeans................................false
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> scheduledExecutor................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> schema................................none
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> threadFactory................................internal
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> transactionIsolation................................default
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> username................................"root"
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.HikariConfig][logConfiguration][1135]-> validationTimeout................................5000
+2026-02-23 00:19:24 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][110]-> HikariCPDatasource - Starting...
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.pool.HikariPool][checkFailFast][565]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@4216431f
+2026-02-23 00:19:24 [INFO][com.zaxxer.hikari.HikariDataSource][getConnection][123]-> HikariCPDatasource - Start completed.
+2026-02-23 00:19:24 [ERROR][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]][log][175]-> Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.easylive.exception.BusinessException: 分类下有视频信息，不允许删除] with root cause
+com.easylive.exception.BusinessException: 分类下有视频信息，不允许删除
+2026-02-23 00:19:24 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:24 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@44a3738d, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:24 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
+2026-02-23 00:19:24 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fc9e952
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ef4e369
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@4fc01e60
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][call][729]-> HikariCPDatasource - Added connection com.mysql.cj.jdbc.ConnectionImpl@1edb1c26
+2026-02-23 00:19:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After adding stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:19:33 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@64132a70, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
+2026-02-23 00:19:33 [ERROR][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]][log][175]-> Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.easylive.exception.BusinessException: 分类下有视频信息，不允许删除] with root cause
+com.easylive.exception.BusinessException: 分类下有视频信息，不允许删除
+2026-02-23 00:19:33 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doGetConnection][143]-> Fetching Redis Connection from RedisConnectionFactory
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.RedisChannelHandler][dispatch][175]-> dispatching command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][channelWriteAndFlush][430]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() writeAndFlush command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][write][207]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] write() done
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][write][383]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandEncoder][encode][101]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=GET, output=ValueOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelRead][578]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 13 bytes, 1 commands in the stack
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][652]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.RedisStateMachine][decode][298]-> Decode done, empty stack: true
+2026-02-23 00:19:33 [DEBUG][io.lettuce.core.protocol.CommandHandler][decode][680]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=GET, output=ValueOutput [output=[B@c03b6b7, error='null'], commandType=io.lettuce.core.protocol.Command]
+2026-02-23 00:19:33 [DEBUG][org.springframework.data.redis.core.RedisConnectionUtils][doCloseConnection][389]-> Closing Redis Connection.
+2026-02-23 00:19:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:19:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:19:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:20:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:20:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:20:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:20:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:20:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:20:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:21:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:21:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:21:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:21:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:21:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:21:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:22:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:22:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:22:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:22:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:22:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:22:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:23:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:23:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:23:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:23:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:23:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:23:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:24:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:24:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:24:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:24:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:24:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:24:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:25:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:25:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:25:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:25:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:25:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:25:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:26:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:26:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:26:25 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:26:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:26:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After cleanup  stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:26:55 [DEBUG][com.zaxxer.hikari.pool.HikariPool][fillPool][518]-> HikariCPDatasource - Fill pool skipped, pool is at sufficient level.
+2026-02-23 00:27:16 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
+2026-02-23 00:27:16 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
+2026-02-23 00:27:16 [INFO][com.zaxxer.hikari.HikariDataSource][close][350]-> HikariCPDatasource - Shutdown initiated...
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - Before shutdown stats (total=5, active=0, idle=5, waiting=0)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4216431f: (connection evicted)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3fc9e952: (connection evicted)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7ef4e369: (connection evicted)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4fc01e60: (connection evicted)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.PoolBase][quietlyCloseConnection][134]-> HikariCPDatasource - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1edb1c26: (connection evicted)
+2026-02-23 00:27:16 [DEBUG][com.zaxxer.hikari.pool.HikariPool][logPoolState][421]-> HikariCPDatasource - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2026-02-23 00:27:16 [INFO][com.zaxxer.hikari.HikariDataSource][close][352]-> HikariCPDatasource - Shutdown completed.
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.RedisChannelHandler][closeAsync][141]-> closeAsync()
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][closeAsync][590]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] closeAsync()
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.AbstractRedisClient][shutdownAsync][539]-> Initiate shutdown (100, 100, MILLISECONDS)
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][344]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive()
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.DefaultEndpoint][lambda$notifyChannelInactive$3][504]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1] deactivating endpoint handler
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelInactive][368]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelInactive() done
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][196]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelInactive()
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][doRelease][281]-> Release executor io.netty.channel.nio.NioEventLoopGroup@26fe9321
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.ConnectionWatchdog][channelInactive][207]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] Reconnect scheduling disabled
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.protocol.CommandHandler][channelUnregistered][227]-> [channel=0xb86c02c4, /127.0.0.1:8150 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelUnregistered()
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.resource.DefaultClientResources][shutdown][735]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-23 00:27:16 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][shutdown][317]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-23 00:33:56 [INFO][org.hibernate.validator.internal.util.Version][<clinit>][21]-> HV000001: Hibernate Validator 6.2.5.Final
+2026-02-23 00:33:56 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarting][55]-> Starting EasyliveAdminRunApplication using Java 22.0.2 on liang_qiongyin with PID 19460 (D:\code\java_project\easylive\easylive\easylive-admin\target\classes started by liang in D:\code\java_project\easylive\easylive)
+2026-02-23 00:33:56 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStartupProfileInfo][632]-> No active profile set, falling back to 1 default profile: "default"
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 5 ms. Found 0 Elasticsearch repository interfaces.
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][multipleStoresDetected][262]-> Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][132]-> Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-23 00:33:57 [INFO][org.springframework.data.repository.config.RepositoryConfigurationDelegate][registerRepositoriesIn][201]-> Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-02-23 00:33:57 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][initialize][108]-> Tomcat initialized with port(s): 7070 (http)
+2026-02-23 00:33:57 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Initializing ProtocolHandler ["http-nio-7070"]
+2026-02-23 00:33:57 [INFO][org.apache.catalina.core.StandardService][log][173]-> Starting service [Tomcat]
+2026-02-23 00:33:57 [INFO][org.apache.catalina.core.StandardEngine][log][173]-> Starting Servlet engine: [Apache Tomcat/9.0.83]
+2026-02-23 00:33:58 [INFO][org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]][log][173]-> Initializing Spring embedded WebApplicationContext
+2026-02-23 00:33:58 [INFO][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][prepareWebApplicationContext][292]-> Root WebApplicationContext: initialization completed in 1410 ms
+2026-02-23 00:33:58 [DEBUG][io.lettuce.core.resource.AddressResolverGroupProvider][<clinit>][37]-> Starting without optional netty's non-blocking DNS resolver library
+2026-02-23 00:33:58 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<clinit>][122]-> -Dio.netty.eventLoopThreads: 16
+2026-02-23 00:33:58 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][createEventLoopGroup][231]-> Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2026-02-23 00:33:58 [DEBUG][io.lettuce.core.event.jfr.EventRecorderHolder][<clinit>][47]-> Starting with JFR support
+2026-02-23 00:33:58 [DEBUG][io.lettuce.core.resource.DefaultClientResources][<init>][227]-> LatencyUtils/HdrUtils are not available, metrics are disabled
+2026-02-23 00:33:58 [DEBUG][com.zaxxer.hikari.HikariConfig][attemptFromContextLoader][971]-> Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@76ed5528
+2026-02-23 00:33:59 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
+2026-02-23 00:33:59 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
+2026-02-23 00:33:59 [INFO][org.apache.coyote.http11.Http11NioProtocol][log][173]-> Starting ProtocolHandler ["http-nio-7070"]
+2026-02-23 00:33:59 [INFO][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][start][220]-> Tomcat started on port(s): 7070 (http) with context path ''
+2026-02-23 00:33:59 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][start][246]-> Starting RedisMessageListenerContainer...
+2026-02-23 00:33:59 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][lazyListen][290]-> Postpone listening for Redis messages until actual listeners are added.
+2026-02-23 00:33:59 [INFO][com.easylive.admin.EasyliveAdminRunApplication][logStarted][61]-> Started EasyliveAdminRunApplication in 3.435 seconds (JVM running for 4.077)
+2026-02-23 00:34:26 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
+2026-02-23 00:34:26 [DEBUG][org.springframework.data.redis.listener.RedisMessageListenerContainer][stop][379]-> Stopped RedisMessageListenerContainer.
+2026-02-23 00:34:26 [DEBUG][io.lettuce.core.AbstractRedisClient][shutdownAsync][539]-> Initiate shutdown (100, 100, MILLISECONDS)
+2026-02-23 00:34:26 [DEBUG][io.lettuce.core.resource.DefaultClientResources][shutdown][735]-> Initiate shutdown (0, 2, SECONDS)
+2026-02-23 00:34:26 [DEBUG][io.lettuce.core.resource.DefaultEventLoopGroupProvider][shutdown][317]-> Initiate shutdown (0, 2, SECONDS)

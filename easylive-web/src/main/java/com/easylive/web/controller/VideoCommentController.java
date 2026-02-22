@@ -1,5 +1,8 @@
 package com.easylive.web.controller;
 
+import com.easylive.annotation.RecordUserMessage;
+import com.easylive.entity.enums.MessageTypeEnum;
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.enums.CommentTopTypeEnum;
@@ -13,7 +16,6 @@ import com.easylive.entity.query.VideoCommentQuery;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.vo.ResponseVO;
 import com.easylive.entity.vo.VideoCommentResultVO;
-import com.easylive.exception.BusinessException;
 import com.easylive.service.UserActionService;
 import com.easylive.service.VideoCommentService;
 import com.easylive.service.VideoInfoService;
@@ -45,6 +47,8 @@ public class VideoCommentController extends  ABaseController {
     private VideoInfoService videoInfoService;
 
     @RequestMapping("/postComment")
+    @RecordUserMessage(messageType = MessageTypeEnum.COMMENT)
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO postComment(@NotEmpty String videoId,
                                   @NotEmpty @Size(max=500) String content,
                                   @Size(max = 50) String imgPath,
@@ -116,6 +120,7 @@ public class VideoCommentController extends  ABaseController {
     }
 
     @RequestMapping("/topComment")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO topComment(@NotNull Integer commentId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         videoCommentService.topComment(commentId, tokenUserInfoDto.getUserId());
@@ -123,6 +128,7 @@ public class VideoCommentController extends  ABaseController {
     }
 
     @RequestMapping("/cancelTopComment")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO cancelTopComment(@NotNull Integer commentId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         videoCommentService.cancelTopComment(commentId, tokenUserInfoDto.getUserId());
@@ -130,6 +136,7 @@ public class VideoCommentController extends  ABaseController {
     }
 
     @RequestMapping("/userDelComment")
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO userDelComment(@NotNull Integer commentId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfoDto();
         videoCommentService.deleteComment(commentId, tokenUserInfoDto.getUserId());

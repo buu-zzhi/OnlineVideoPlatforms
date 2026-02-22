@@ -3,18 +3,16 @@ package com.easylive.web.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
+import com.easylive.web.annotation.GlobalInterceptor;
 import com.easylive.entity.constants.Constants;
 import com.easylive.entity.po.VideoInfo;
-import com.easylive.exception.BusinessException;
 import com.easylive.service.VideoDanmuService;
 import com.easylive.entity.vo.ResponseVO;
 import com.easylive.entity.po.VideoDanmu;
 import com.easylive.entity.query.VideoDanmuQuery;
 import com.easylive.service.VideoInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
@@ -38,6 +36,7 @@ public class VideoDanmuController extends ABaseController{
 
     /*  发布弹幕  */
 	@RequestMapping("/postDanmu")
+    @GlobalInterceptor(checkLogin = true)
 	public ResponseVO postDanmu(@NotEmpty String videoId, @NotEmpty String fileId,
                                 @NotEmpty @Size(max=200) String text, @NotNull Integer mode,
                                 @NotEmpty String color, @NotNull Integer time) {
