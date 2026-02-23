@@ -124,12 +124,17 @@ public class RedisComponent {
         redisUtils.set(Constants.REDIS_KEY_SYS_SETTING, sysSettingDto);
     }
 
+    public void adminSaveSetting(SysSettingDto sysSettingDto) {
+        redisUtils.set(Constants.REDIS_KEY_SYS_SETTING, sysSettingDto);
+    }
+
     public SysSettingDto getSysSettingDto() {
         SysSettingDto sysSettingDto = (SysSettingDto) redisUtils.get(Constants.REDIS_KEY_SYS_SETTING);
         if (null == sysSettingDto) {
             saveSysSettingDto();
+            return new SysSettingDto();
         }
-        return new SysSettingDto();
+        return sysSettingDto;
     }
 
     public UploadingFileDto getUploadVideoFile(String userId, String uploadId) {

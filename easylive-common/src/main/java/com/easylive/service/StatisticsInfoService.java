@@ -62,4 +62,8 @@ public interface StatisticsInfoService{
     void statisticsData();
 
     Map<String, Integer> getStatisticsInfoActualTime(String userId);
+
+    List<StatisticsInfo> findListTotalInfoByParam(StatisticsInfoQuery query);
+
+    List<StatisticsInfo> findUserCountTotalInfoByParam(StatisticsInfoQuery param);
 }

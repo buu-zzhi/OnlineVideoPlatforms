@@ -213,7 +213,7 @@ public class VideoCommentServiceImpl implements VideoCommentService{
             throw new BusinessException(ResponseCodeEnum.CODE_600);
         }
 
-        if (!videoInfo.getUserId().equals(userId) && !videoComment.getUserId().equals(userId)) {
+        if (userId != null && !videoInfo.getUserId().equals(userId) && !videoComment.getUserId().equals(userId)) {
             throw new BusinessException(ResponseCodeEnum.CODE_600);
         }
 

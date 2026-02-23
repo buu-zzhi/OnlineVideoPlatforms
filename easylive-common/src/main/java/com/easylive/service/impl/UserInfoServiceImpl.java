@@ -285,4 +285,11 @@ public class UserInfoServiceImpl implements UserInfoService{
         userCountInfoDto.setCurrentCoinCount(userInfo.getCurrentCoinCount());
         return userCountInfoDto;
     }
+
+    @Override
+    public void changeUserStatus(String userId, Integer status) {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setStatus(status);
+        userInfoMapper.updateByUserId(userInfo, userId);
+    }
 }

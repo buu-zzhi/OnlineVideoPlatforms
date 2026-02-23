@@ -71,6 +71,15 @@ public class VideoDanmuQuery extends BaseQuery {
     private Boolean queryVideoInfo;
 
 
+    private String videoNameFuzzy;
+
+    public String getVideoNameFuzzy() {
+        return videoNameFuzzy;
+    }
+
+    public void setVideoNameFuzzy(String videoNameFuzzy) {
+        this.videoNameFuzzy = videoNameFuzzy;
+    }
 
     public Boolean getQueryVideoInfo() {
         return queryVideoInfo;

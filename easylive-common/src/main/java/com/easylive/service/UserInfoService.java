@@ -106,4 +106,6 @@ public interface UserInfoService{
     void updateUserInfo(UserInfo userInfo, TokenUserInfoDto tokenUserInfoDto);
 
     UserCountInfoDto getUserCountInfo(String userId);
+
+    void changeUserStatus(String userId, Integer status);
 }

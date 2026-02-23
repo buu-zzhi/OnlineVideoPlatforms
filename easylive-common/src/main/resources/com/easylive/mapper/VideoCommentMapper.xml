@@ -109,6 +109,9 @@
 		<where>
 			<include refid="base_query_condition"/>
 			<include refid="base_query_condition_extend"/>
+            <if test="query.videoNameFuzzy != null and query.videoNameFuzzy != ''">
+                and vd.video_name like concat('%', #{query.videoNameFuzzy}, '%')
+            </if>
 		</where>
 	</sql>
 

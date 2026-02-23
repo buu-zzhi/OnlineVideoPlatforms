@@ -14,6 +14,7 @@ import com.easylive.entity.constants.Constants;
 import com.easylive.entity.dto.SysSettingDto;
 import com.easylive.entity.enums.ResponseCodeEnum;
 import com.easylive.entity.enums.UserActionTypeEnum;
+import com.easylive.entity.enums.VideoRecommendType;
 import com.easylive.entity.po.*;
 import com.easylive.entity.query.*;
 import com.easylive.entity.enums.PageSize;
@@ -168,10 +169,10 @@ public class VideoInfoServiceImpl implements VideoInfoService{
 
     @Override
     public void deleteVideo(String videoId, String userId) {
-        VideoInfo dbInfo = videoInfoMapper.selectByVideoId(videoId);
+        VideoInfoPost dbInfoPost = videoInfoPostMapper.selectByVideoId(videoId);
 
         // 管理员有可能调用这个接口 传进来的userId为Null
-        if (dbInfo == null || userId != null && !dbInfo.getUserId().equals(userId)) {
+        if (dbInfoPost == null || userId != null && !dbInfoPost.getUserId().equals(userId)) {
             throw new BusinessException(ResponseCodeEnum.CODE_404);
         }
         videoInfoMapper.deleteByVideoId(videoId);
@@ -179,7 +180,7 @@ public class VideoInfoServiceImpl implements VideoInfoService{
 
         SysSettingDto sysSettingDto = redisComponent.getSysSettingDto();
         // 减去用户的硬币
-        userInfoMapper.updateCoinCountInfo(dbInfo.getUserId(), -sysSettingDto.getPostVideoCoinCount());
+        userInfoMapper.updateCoinCountInfo(dbInfoPost.getUserId(), -sysSettingDto.getPostVideoCoinCount());
 
         // 删除es
         esSearchComponent.delDoc(videoId);
@@ -219,5 +220,22 @@ public class VideoInfoServiceImpl implements VideoInfoService{
     @Override
     public void addReadCount(String videoId) {
         videoInfoMapper.updateCountInfo(videoId, UserActionTypeEnum.VIDEO_PLAY.getField(), 1);
+    }
+
+    @Override
+    public void recommendVideo(String videoId) {
+        VideoInfo videoInfo = videoInfoMapper.selectByVideoId(videoId);
+        if (videoInfo == null) {
+            throw new BusinessException(ResponseCodeEnum.CODE_600);
+        }
+        Integer recommendType = null;
+        if (VideoRecommendType.RECOMMEND.getStatus().equals(videoInfo.getRecommendType())) {
+            recommendType = VideoRecommendType.NO_RECOMMEND.getStatus();
+        } else {
+            recommendType = VideoRecommendType.RECOMMEND.getStatus();
+        }
+        VideoInfo updateVideoInfo = new VideoInfo();
+        updateVideoInfo.setRecommendType(recommendType);
+        videoInfoMapper.updateByVideoId(updateVideoInfo, videoId);
     }
 }

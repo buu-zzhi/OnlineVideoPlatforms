@@ -51,13 +51,14 @@
 		<where>
 			<include refid="base_query_condition"/>
 			<include refid="base_query_condition_extend"/>
+            <if test="query.statisticsDateStart != null">
+                <![CDATA[and statistics_date>=#{query.statisticsDateStart}]]>
+            </if>
+            <if test="query.statisticsDateEnd != null">
+                <![CDATA[and statistics_date<=#{query.statisticsDateEnd}]]>
+            </if>
 		</where>
-        <if test="query.statisticsDateStart != null">
-            <![CDATA[and statistics_date>=#{query.statisticsDateStart}]]>
-        </if>
-        <if test="query.statisticsDateEnd != null">
-            <![CDATA[and statistics_date<=#{query.statisticsDateEnd}]]>
-        </if>
+
 	</sql>
 
 	<!-- 查询列表 -->
@@ -206,6 +207,16 @@
                 and user_id = #{userId}
             </if>
         </where>
+    </select>
+    <select id="selectListTotalInfoByParam" resultMap="base_result_map">
+        select sum(statistics_count) statistics_count, data_type, statistics_date
+        from statistics_info
+        <include refid="query_condition"/>
+        group by data_type, statistics_date
+    </select>
+    <select id="selectUserCountTotalInfoByParam" resultMap="base_result_map">
+        select count(1) statistics_count, DATE_FORMAT(join_time, '%Y-%m-%d') statistics_date from user_info
+        group by statistics_date order by  statistics_date
     </select>
 
 

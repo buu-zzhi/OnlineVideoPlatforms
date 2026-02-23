@@ -65,4 +65,6 @@ public interface VideoInfoService{
     void deleteVideo(@NotEmpty String videoId, String userId);
 
     void addReadCount(String videoId);
+
+    void recommendVideo(@NotEmpty String videoId);
 }
