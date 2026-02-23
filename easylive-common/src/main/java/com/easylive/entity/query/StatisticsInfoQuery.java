@@ -32,8 +32,26 @@ public class StatisticsInfoQuery extends BaseQuery {
  	 */
 	private Integer statisticsCount;
 
+    private String statisticsDateStart;
+    private String statisticsDateEnd;
 
-	public void setStatisticsDate(String statisticsDate) {
+    public String getStatisticsDateStart() {
+        return statisticsDateStart;
+    }
+
+    public void setStatisticsDateStart(String statisticsDateStart) {
+        this.statisticsDateStart = statisticsDateStart;
+    }
+
+    public String getStatisticsDateEnd() {
+        return statisticsDateEnd;
+    }
+
+    public void setStatisticsDateEnd(String statisticsDateEnd) {
+        this.statisticsDateEnd = statisticsDateEnd;
+    }
+
+    public void setStatisticsDate(String statisticsDate) {
 		this.statisticsDate = statisticsDate;
 	}
 

@@ -1,9 +1,12 @@
 package com.easylive.utils;
 
+import com.easylive.entity.enums.DateTimePatternEnum;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 /**
  * @Description: 时间工具类
@@ -45,5 +48,25 @@ public class DateUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static String getBeforeDate(Integer day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, -day);
+        return format(calendar.getTime(), DateTimePatternEnum.YYYY_MM_DD.getPattern());
+    }
+
+    public static List<String> getBeforeDates(Integer beforeDays) {
+        LocalDate endDate =  LocalDate.now();
+        List<String> dateList = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        for (int i = beforeDays; i > 0; i--) {
+            dateList.add(endDate.minusDays(i).format(formatter));
+        }
+        return dateList;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getBeforeDates(7));
     }
 }

@@ -2,6 +2,8 @@ package com.easylive.service;
 
 
 import java.util.List;
+import java.util.Map;
+
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.StatisticsInfo;
 import com.easylive.entity.query.StatisticsInfoQuery;
@@ -56,4 +58,8 @@ public interface StatisticsInfoService{
  	 * 根据 StatisticsDateAndUserIdAndDataType 删除
  	 */
 	Integer deleteStatisticsInfoByStatisticsDateAndUserIdAndDataType(String statisticsDate, String userId, Integer dataType);
+
+    void statisticsData();
+
+    Map<String, Integer> getStatisticsInfoActualTime(String userId);
 }

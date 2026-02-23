@@ -8,6 +8,7 @@ import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.VideoDanmuQuery;
 import com.easylive.entity.query.VideoPlayHistoryQuery;
 import com.easylive.entity.vo.ResponseVO;
+import com.easylive.service.StatisticsInfoService;
 import com.easylive.service.VideoDanmuService;
 import com.easylive.service.VideoInfoService;
 import com.easylive.service.VideoPlayHistoryService;
@@ -63,7 +64,4 @@ public class VideoPlayHistoryController extends ABaseController{
         videoPlayHistoryService.deleteVideoPlayHistoryByUserIdAndVideoId(tokenUserInfoDto.getUserId(), videoId);
         return getSuccessResponseVO(null);
     }
-
-
-
 }
