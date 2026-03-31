@@ -47,6 +47,7 @@ com\easylive\mapper\StatisticsInfoMapper.class
 com\easylive\service\VideoInfoFilePostService.class
 com\easylive\exception\BaseException.class
 com\easylive\entity\enums\ResponseCodeEnum.class
+com\easylive\entity\config\DashScopeApiConfiguration.class
 com\easylive\service\UserVideoSeriesVideoService.class
 com\easylive\entity\enums\ResponseEnum.class
 com\easylive\entity\dto\UploadingFileDto.class

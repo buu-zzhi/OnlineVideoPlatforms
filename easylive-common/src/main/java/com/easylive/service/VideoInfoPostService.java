@@ -8,8 +8,8 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoInfoPost;
 import com.easylive.entity.query.VideoInfoPostQuery;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @Description: 视频信息 Service

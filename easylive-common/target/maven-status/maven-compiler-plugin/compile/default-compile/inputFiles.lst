@@ -60,6 +60,7 @@ D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easyliv
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\utils\CopyTools.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\exception\BaseException.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\mapper\VideoDanmuMapper.java
+D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\config\DashScopeApiConfiguration.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\query\UserInfoQuery.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\enums\DateTimePatternEnum.java
 D:\code\java_project\easylive\easylive\easylive-common\src\main\java\com\easylive\entity\po\VideoInfoFilePost.java

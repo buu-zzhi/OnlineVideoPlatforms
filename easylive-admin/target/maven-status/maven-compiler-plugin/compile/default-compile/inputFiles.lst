@@ -2,6 +2,7 @@ D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\intersecptor\AppInterceptor.java
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\EasyliveAdminRunApplication.java
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\controller\IndexController.java
+D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\controller\SettingController.java
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\controller\UserController.java
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\intersecptor\WebAppConfigurer.java
 D:\code\java_project\easylive\easylive\easylive-admin\src\main\java\com\easylive\admin\controller\FileController.java

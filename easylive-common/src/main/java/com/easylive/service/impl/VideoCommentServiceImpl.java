@@ -25,7 +25,7 @@ import com.easylive.entity.query.VideoCommentQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @Description: 评论 业务接口实现
  * @Author: false

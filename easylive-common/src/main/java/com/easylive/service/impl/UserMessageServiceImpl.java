@@ -26,7 +26,7 @@ import org.eclipse.parsson.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @Description: 用户消息表 业务接口实现
  * @Author: false

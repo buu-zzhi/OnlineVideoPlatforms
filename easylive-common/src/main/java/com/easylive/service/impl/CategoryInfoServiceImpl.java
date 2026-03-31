@@ -18,8 +18,9 @@ import com.easylive.entity.po.CategoryInfo;
 import com.easylive.entity.query.CategoryInfoQuery;
 import com.easylive.service.VideoInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @Description: 分类信息 业务接口实现
  * @Author: false
@@ -35,6 +36,9 @@ public class CategoryInfoServiceImpl implements CategoryInfoService{
     private RedisComponent redisComponent;
     @Autowired
     private VideoInfoService videoInfoService;
+
+    @Value("${app.cache.enabled:true}")
+    private boolean cacheEnabled;
 
     /**
  	 * 根据条件查询列表
@@ -211,6 +215,14 @@ public class CategoryInfoServiceImpl implements CategoryInfoService{
 
     @Override
     public List<CategoryInfo> getAllCategoryList() {
+        // 如果关闭缓存，直接查数据库（用于性能对比测试）
+        if (!cacheEnabled) {
+            CategoryInfoQuery query = new CategoryInfoQuery();
+            query.setOrderBy("sort asc");
+            query.setConvert2Tree(true);
+            return findListByParam(query);
+        }
+        // 走 Redis 缓存
         List<CategoryInfo> categoryInfoList = redisComponent.getCategoryList();
         if (categoryInfoList.isEmpty()) {
             save2Redis();

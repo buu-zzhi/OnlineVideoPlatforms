@@ -7,6 +7,7 @@ com\easylive\web\annotation\GlobalInterceptor.class
 com\easylive\web\controller\UHomeVideoSeriesController.class
 com\easylive\web\component\RedisKeyExpirationListener.class
 com\easylive\web\EasyliveWebRunApplication.class
+com\easylive\web\config\SentinelConfig.class
 com\easylive\web\controller\VideoCommentController.class
 com\easylive\web\controller\CategoryController.class
 com\easylive\web\controller\UcenterStatisticsController.class

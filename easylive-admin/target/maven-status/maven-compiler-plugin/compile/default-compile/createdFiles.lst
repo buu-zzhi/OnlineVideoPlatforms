@@ -5,6 +5,7 @@ com\easylive\admin\intersecptor\WebAppConfigurer.class
 com\easylive\admin\controller\InteractController.class
 com\easylive\admin\controller\VideoInfoController.class
 com\easylive\admin\controller\AccountController.class
+com\easylive\admin\controller\SettingController.class
 com\easylive\admin\controller\UserController.class
 com\easylive\admin\controller\ABaseController.class
 com\easylive\admin\intersecptor\AppInterceptor.class

@@ -11,7 +11,7 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoPlayHistory;
 import com.easylive.entity.query.VideoPlayHistoryQuery;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @Description: 视频播放历史 业务接口实现
  * @Author: false

@@ -21,41 +21,69 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-  redis:
-    database: 2
-    host: localhost
-    port: 6379
-    jedis:
-      pool:
-        max-active: 20
-        max-wait: -1
-        max-idle: 10
-        min-idle: 0
-    timeout: 2000
+  data:
+    redis:
+      database: 2
+      host: localhost
+      port: 6379
+      jedis:
+        pool:
+          max-active: 20
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 0
+      timeout: 2000ms
+
+  ai:
+    dashscope:
+      api-key: sk-94fd61f7056d4dadbb46258ae975a781
+      chat:
+        options:
+          model: qwen-vl-plus-2025-05-07
 #mybatis 大小写转驼峰
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 project:
   folder: D:/code/java_project/easylive/easylive/savefile/
-log:
-  root:
-    level: info
-logging:
-  level:
-    root: info
-    org.mybatis: info
-    com.zaxxer.hikari: info
-    io.lettuce: info
-    org.springframework.data.redis: info
 admin:
   account: admin
   password: admin123
 
+# 缓存开关，设为 false 则绕过 Redis 缓存直接查数据库（用于性能对比测试）
+app:
+  cache:
+    enabled: true
+
 ffmpeg:
   path: C:\Users\liang\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe
   ffprobe: C:\Users\liang\AppData\Local\Microsoft\WinGet\Links\ffprobe.exe
+
+es:
+  host:
+    port: 127.0.0.1:9200
+  username: elastic
+  password: elastic
+  ssl:
+    enabled: true
+    fingerprint:
+    ca-cert-path: D:\MEdownload\elasiticsearch8.11.1\elasticsearch-8.11.1\config\certs\http_ca.crt
+    insecure: false
+  index:
+    video:
+      name: easylive_video
+      analyzer: standard
+
+# Sentinel 弹幕接口限流配置（QPS）
+sentinel:
+  dashboard:
+    server: localhost:8858
+  api:
+    port: 8719
+  danmu:
+    post-qps: 100   # 发布弹幕接口限流阈值（写操作，建议 100-200）
+    load-qps: 100   # 加载弹幕接口限流阈值（读操作，建议 500-1000）
 

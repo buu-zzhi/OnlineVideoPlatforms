@@ -4,7 +4,7 @@ import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.constants.Constants;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.File;
 import java.math.BigDecimal;
 
@@ -49,6 +49,16 @@ public class FFmpegUtils {
         String CMD_HEVC_264 = appConfig.getFfmpegPath() + " -i \"%s\" -c:v libx264 -crf 20 \"%s\" -y";
         String cmd = String.format(CMD_HEVC_264, newFileName, videoFilePath);
         ProcessUtils.executeCommand(cmd, appConfig.getShowFFmpegLog());
+    }
+
+    public String extractKeyFrame(String originFilePath) {
+        // Generate a smaller JPEG for AI analysis to reduce payload size and latency.
+        String CMD = appConfig.getFfmpegPath()
+                + " -i \"%s\" -vf \"scale='min(960,iw)':-2\" -frames:v 1 -q:v 8 -f image2 \"%s\" -y";
+        String frameFilePath = originFilePath + "_frame.jpg";
+        CMD = String.format(CMD, originFilePath, frameFilePath);
+        ProcessUtils.executeCommand(CMD, appConfig.getShowFFmpegLog());
+        return frameFilePath;
     }
 
     public void convertVideo2Ts(File tsFolder, String videoFilePath) {

@@ -4,7 +4,7 @@ import com.easylive.service.StatisticsInfoService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Component
 public class SysTask {

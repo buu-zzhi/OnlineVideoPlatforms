@@ -6,7 +6,7 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.VideoInfoQuery;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 /**
  * @Description: 视频信息 Service

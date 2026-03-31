@@ -12,10 +12,9 @@ import com.easylive.entity.po.VideoInfoFilePost;
 import com.easylive.redis.RedisUtils;
 import com.easylive.utils.DateUtils;
 import com.easylive.utils.StringTools;
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.File;
 import java.util.Date;
 import java.util.List;

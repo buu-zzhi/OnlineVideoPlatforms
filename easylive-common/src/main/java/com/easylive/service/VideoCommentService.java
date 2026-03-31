@@ -6,7 +6,7 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoComment;
 import com.easylive.entity.query.VideoCommentQuery;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @Description: 评论 Service

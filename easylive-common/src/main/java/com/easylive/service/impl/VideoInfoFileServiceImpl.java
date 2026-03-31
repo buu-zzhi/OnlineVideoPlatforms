@@ -11,7 +11,7 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.VideoInfoFile;
 import com.easylive.entity.query.VideoInfoFileQuery;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @Description: 视频文件信息 业务接口实现
  * @Author: false

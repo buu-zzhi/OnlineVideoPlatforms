@@ -6,8 +6,8 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.CategoryInfo;
 import com.easylive.entity.query.CategoryInfoQuery;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @Description: 分类信息 Service

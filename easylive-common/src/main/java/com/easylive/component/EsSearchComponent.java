@@ -1,6 +1,12 @@
 package com.easylive.component;
 
-
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.SortOrder;
+import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.Query;
+import co.elastic.clients.elasticsearch.core.*;
+import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.elasticsearch.indices.ExistsRequest;
 import com.easylive.entity.config.AppConfig;
 import com.easylive.entity.dto.VideoInfoEsDto;
 import com.easylive.entity.enums.PageSize;
@@ -13,35 +19,13 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.exception.BusinessException;
 import com.easylive.mapper.UserInfoMapper;
 import com.easylive.utils.CopyTools;
-import com.easylive.utils.JsonUtils;
 import com.easylive.utils.StringTools;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.action.delete.DeleteRequest;
-import org.elasticsearch.action.get.GetRequest;
-import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.CreateIndexRequest;
-import org.elasticsearch.client.indices.CreateIndexResponse;
-import org.elasticsearch.client.indices.GetIndexRequest;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.script.Script;
-import org.elasticsearch.script.ScriptType;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.SearchHits;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
-import org.elasticsearch.search.sort.SortOrder;
-import org.elasticsearch.xcontent.XContentType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -55,15 +39,13 @@ public class EsSearchComponent {
     private AppConfig appConfig;
 
     @Resource
-    private RestHighLevelClient restHighLevelClient;
+    private ElasticsearchClient elasticsearchClient;
 
     @Resource
     private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
 
     private Boolean isExistIndex() throws IOException {
-        GetIndexRequest getIndexRequest = new GetIndexRequest(appConfig.getEsIndexVideoName());
-        return restHighLevelClient.indices().exists(getIndexRequest, RequestOptions.DEFAULT);
-
+        return elasticsearchClient.indices().exists(ExistsRequest.of(e -> e.index(appConfig.getEsIndexVideoName()))).value();
     }
 
     public void createIndex() {
@@ -71,65 +53,51 @@ public class EsSearchComponent {
             if (isExistIndex()) {
                 return;
             }
-            CreateIndexRequest request = new CreateIndexRequest(appConfig.getEsIndexVideoName());
-            request.settings("{\"analysis\" : {\n" +
-                    "    \"analyzer\": {\n" +
-                    "      \"comma\": {\n" +
-                    "        \"type\": \"pattern\",\n" +
-                    "        \"pattern\": \",\"\n" +
-                    "      }\n" +
-                    "    }\n" +
-                    "  }}", XContentType.JSON);
-
-            request.mapping("{\"properties\": {\n" +
-                    "    \"videoId\":{\n" +
-                    "      \"type\": \"text\",\n" +
-                    "      \"index\": false\n" +
-                    "    },\n" +
-                    "    \"userId\":{\n" +
-                    "      \"type\": \"text\",\n" +
-                    "      \"index\":false\n" +
-                    "    },\n" +
-                    "    \"videoCover\":{\n" +
-                    "      \"type\": \"text\",\n" +
-                    "      \"index\":false\n" +
-                    "    },\n" +
-                    "    \"videoName\":{\n" +
-                    "      \"type\":\"text\",\n" +
-                    "      \"analyzer\":\"ik_max_word\"\n" +
-                    "     },\n" +
-                    "    \"tags\":{\n" +
-                    "      \"type\":\"text\",\n" +
-                    "      \"analyzer\":\"comma\"\n" +
-                    "    },\n" +
-                    "    \"playCount\":{\n" +
-                    "      \"type\":\"integer\",\n" +
-                    "      \"index\":false\n" +
-                    "    },\n" +
-                    "    \"danmuCount\":{\n" +
-                    "      \"type\":\"integer\",\n" +
-                    "      \"index\":false\n" +
-                    "    },\n" +
-                    "    \"collectCount\":{\n" +
-                    "      \"type\":\"integer\",\n" +
-                    "      \"index\":false\n" +
-                    "    },\n" +
-                    "    \"createTime\":{\n" +
-                    "      \"type\":\"date\",\n" +
-                    "      \"format\": \"yyyy-MM-dd HH:mm:ss\",\n" +
-                    "      \"index\": false\n" +
-                    "    }\n" +
-                    "  }}", XContentType.JSON);
-
-            CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
-            Boolean acknowledged = createIndexResponse.isAcknowledged();
-            if (!acknowledged) {
-                throw new BusinessException("初始化es失败");
-            }
+            createIndex(appConfig.getEsIndexVideoAnalyzer());
         } catch (Exception e) {
+            if (shouldFallbackToStandardAnalyzer(e, appConfig.getEsIndexVideoAnalyzer())) {
+                try {
+                    log.warn("ES analyzer [{}] 不可用，回退到 standard analyzer 创建索引", appConfig.getEsIndexVideoAnalyzer(), e);
+                    createIndex("standard");
+                    return;
+                } catch (Exception fallbackException) {
+                    log.error("ES analyzer 回退到 standard 后仍然初始化失败", fallbackException);
+                    throw new BusinessException("初始化es失败");
+                }
+            }
             log.error("初始化es失败", e);
             throw new BusinessException("初始化es失败");
         }
+    }
+
+    private void createIndex(String videoAnalyzer) throws IOException {
+        elasticsearchClient.indices().create(e -> e.index(appConfig.getEsIndexVideoName())
+                .withJson(new StringReader(buildIndexJson(videoAnalyzer))));
+    }
+
+    private String buildIndexJson(String videoAnalyzer) {
+        String analyzer = StringTools.isEmpty(videoAnalyzer) ? "standard" : videoAnalyzer;
+        return String.format(Locale.ROOT,
+                "{\"settings\":{\"analysis\":{\"analyzer\":{\"comma\":{\"type\":\"pattern\",\"pattern\":\",\"}}}},\"mappings\":{\"properties\":{\"videoId\":{\"type\":\"text\",\"index\":false},\"userId\":{\"type\":\"text\",\"index\":false},\"videoCover\":{\"type\":\"text\",\"index\":false},\"videoName\":{\"type\":\"text\",\"analyzer\":\"%s\"},\"tags\":{\"type\":\"text\",\"analyzer\":\"comma\"},\"playCount\":{\"type\":\"integer\",\"index\":false},\"danmuCount\":{\"type\":\"integer\",\"index\":false},\"collectCount\":{\"type\":\"integer\",\"index\":false},\"createTime\":{\"type\":\"date\",\"format\":\"yyyy-MM-dd HH:mm:ss\",\"index\":false}}}}",
+                analyzer);
+    }
+
+    private boolean shouldFallbackToStandardAnalyzer(Exception e, String configuredAnalyzer) {
+        if (StringTools.isEmpty(configuredAnalyzer) || "standard".equalsIgnoreCase(configuredAnalyzer)) {
+            return false;
+        }
+        String errorMessage = e.getMessage();
+        if (StringTools.isEmpty(errorMessage) && e.getCause() != null) {
+            errorMessage = e.getCause().getMessage();
+        }
+        if (StringTools.isEmpty(errorMessage)) {
+            return false;
+        }
+        String normalized = errorMessage.toLowerCase(Locale.ROOT);
+        return normalized.contains("analyzer")
+                && (normalized.contains("not found")
+                || normalized.contains("failed to find")
+                || normalized.contains("unknown"));
     }
 
     public void saveDoc(VideoInfo videoInfo) {
@@ -139,16 +107,14 @@ public class EsSearchComponent {
             } else {
                 IndexDoc(videoInfo);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("保存到es失败", e);
-            throw  new BusinessException("保存到es失败");
+            throw new BusinessException("保存到es失败");
         }
     }
 
     private Boolean docExist(String id) throws IOException {
-        GetRequest request = new GetRequest(appConfig.getEsIndexVideoName(), id);
-        GetResponse response = restHighLevelClient.get(request, RequestOptions.DEFAULT);
-        return response.isExists();
+        return elasticsearchClient.exists(e -> e.index(appConfig.getEsIndexVideoName()).id(id)).value();
     }
 
     private void IndexDoc(VideoInfo videoInfo) {
@@ -157,9 +123,7 @@ public class EsSearchComponent {
             videoInfoEsDto.setCollectCount(0);
             videoInfoEsDto.setPlayCount(0);
             videoInfoEsDto.setDanmuCount(0);
-            IndexRequest request = new IndexRequest(appConfig.getEsIndexVideoName());
-            request.id(videoInfo.getVideoId()).source(JsonUtils.convertObj2Json(videoInfoEsDto), XContentType.JSON);
-            restHighLevelClient.index(request, RequestOptions.DEFAULT);
+            elasticsearchClient.index(e -> e.index(appConfig.getEsIndexVideoName()).id(videoInfo.getVideoId()).document(videoInfoEsDto));
         } catch (Exception e) {
             log.error("es更新视频失败", e);
             throw new BusinessException("es更新视频失败");
@@ -177,7 +141,7 @@ public class EsSearchComponent {
                 Method method = videoInfo.getClass().getMethod(methodName);
 
                 Object object = method.invoke(videoInfo);
-                if (object != null && object instanceof String && !StringTools.isEmpty(object.toString()) || object != null && !(object instanceof String)) {
+                if ((object != null && object instanceof String && !StringTools.isEmpty((String)object)) || (object != null && !(object instanceof String))) {
                     dataMap.put(field.getName(), object);
                 }
             }
@@ -185,9 +149,7 @@ public class EsSearchComponent {
             if (dataMap.isEmpty()) {
                 return;
             }
-            UpdateRequest updateRequest = new UpdateRequest(appConfig.getEsIndexVideoName(), videoInfo.getVideoId());
-            updateRequest.doc(dataMap);
-            restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);
+            elasticsearchClient.update(e -> e.index(appConfig.getEsIndexVideoName()).id(videoInfo.getVideoId()).doc(dataMap), Map.class);
         } catch (Exception e) {
             log.error("es更新视频失败", e);
             throw new BusinessException("es更新视频失败");
@@ -196,10 +158,9 @@ public class EsSearchComponent {
 
     public void updateDocCount(String videoId, String fieldName, Integer count) {
         try {
-            UpdateRequest updateRequest = new UpdateRequest(appConfig.getEsIndexVideoName(), videoId);
-            Script script = new Script(ScriptType.INLINE, "painless", "ctx._source." + fieldName + " += params.count", Collections.singletonMap("count", count));
-            updateRequest.script(script);
-            restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);
+            elasticsearchClient.update(e -> e.index(appConfig.getEsIndexVideoName()).id(videoId)
+                            .script(s -> s.inline(i -> i.source("ctx._source." + fieldName + " += params.count").params("count", co.elastic.clients.json.JsonData.of(count)))),
+                    Map.class);
         } catch (Exception e) {
             log.error("更新数量到es失败", e);
             throw new BusinessException("更新数量到es失败");
@@ -207,9 +168,8 @@ public class EsSearchComponent {
     }
 
     public void delDoc(String videoId) {
-        DeleteRequest request = new DeleteRequest(appConfig.getEsIndexVideoName(), videoId);
         try {
-            restHighLevelClient.delete(request, RequestOptions.DEFAULT);
+            elasticsearchClient.delete(e -> e.index(appConfig.getEsIndexVideoName()).id(videoId));
         } catch (IOException e) {
             log.error("从es删除视频失败", e);
             throw new BusinessException("从es删除视频失败");
@@ -219,53 +179,61 @@ public class EsSearchComponent {
     public PaginationResultVO<VideoInfo> search(Boolean highlight, String keyword, Integer orderType, Integer pageNo, Integer pageSize) {
         try {
             SearchOrderTypeEnum searchOrderTypeEnum = SearchOrderTypeEnum.getByType(orderType);
-            SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-            searchSourceBuilder.query(QueryBuilders.multiMatchQuery(keyword, "videoName", "tags"));
-            if (highlight) { // 高亮
-                HighlightBuilder highlightBuilder = new HighlightBuilder();
-                highlightBuilder.field("videoName");
-                highlightBuilder.preTags("<span style='color:red'>");
-                highlightBuilder.postTags("</span>");
-                searchSourceBuilder.highlighter(highlightBuilder);
-            }
-            // 排序
-            searchSourceBuilder.sort("_score", SortOrder.ASC);
-            if (orderType != null) {
-                searchSourceBuilder.sort(searchOrderTypeEnum.getField(), SortOrder.DESC);
-            }
+            
+            Query query = MultiMatchQuery.of(m -> m.query(keyword).fields("videoName", "tags"))._toQuery();
+
             pageNo = pageNo == null ? 1 : pageNo;
             pageSize = pageSize == null ? PageSize.SIZE10.getSize() : pageSize;
-            searchSourceBuilder.from((pageNo - 1) * pageSize);
-            SearchRequest searchRequest = new SearchRequest(appConfig.getEsIndexVideoName());
-            searchRequest.source(searchSourceBuilder);
-            SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+            
+            int from = (pageNo - 1) * pageSize;
+            int size = pageSize;
+            
+            SearchRequest.Builder searchBuilder = new SearchRequest.Builder()
+                    .index(appConfig.getEsIndexVideoName())
+                    .query(query)
+                    .from(from)
+                    .size(size);
+                    
+            if (highlight) {
+                searchBuilder.highlight(h -> h
+                        .fields("videoName", f -> f.preTags("<span style='color:red'>").postTags("</span>")));
+            }
+            
+            searchBuilder.sort(s -> s.score(sc -> sc.order(SortOrder.Asc)));
+            if (orderType != null && searchOrderTypeEnum != null) {
+                searchBuilder.sort(s -> s.field(f -> f.field(searchOrderTypeEnum.getField()).order(SortOrder.Desc)));
+            }
 
-            // 将es结果塞入数组中
-            SearchHits hits = searchResponse.getHits();
-            Integer totalCount  =  (int) hits.getTotalHits().value;
-            List<VideoInfo> videoInfolist = new ArrayList<>(); // 存储查询结果中的视频信息
-            List<String> userIdList = new ArrayList<>();  // 查询用户对应的姓名
-            for (SearchHit hit : hits.getHits()) {
-                VideoInfo videoInfo = JsonUtils.convertJson2Obj(hit.getSourceAsString(), VideoInfo.class);
-                if (hit.getHighlightFields().get("videoName") != null) {
-                    videoInfo.setVideoName(hit.getHighlightFields().get("videoName").fragments()[0].toString());
+            SearchResponse<VideoInfoEsDto> searchResponse = elasticsearchClient.search(searchBuilder.build(), VideoInfoEsDto.class);
+
+            long totalHits = searchResponse.hits().total() != null ? searchResponse.hits().total().value() : 0;
+            Integer totalCount = (int) totalHits;
+            
+            List<VideoInfo> videoInfolist = new ArrayList<>();
+            List<String> userIdList = new ArrayList<>();
+            for (Hit<VideoInfoEsDto> hit : searchResponse.hits().hits()) {
+                VideoInfoEsDto dto = hit.source();
+                VideoInfo videoInfo = CopyTools.copy(dto, VideoInfo.class);
+                if (highlight && hit.highlight().containsKey("videoName")) {
+                    videoInfo.setVideoName(hit.highlight().get("videoName").get(0));
                 }
                 videoInfolist.add(videoInfo);
                 userIdList.add(videoInfo.getUserId());
             }
 
-            UserInfoQuery userInfoQuery = new UserInfoQuery();
-            userInfoQuery.setUserIdList(userIdList);
-            List<UserInfo> userInfoList = userInfoMapper.selectList(userInfoQuery);
-            Map<String, UserInfo> userInfoMap = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, Function.identity(), (data1, data2)->data2));
-            videoInfolist.forEach(item -> {
-                UserInfo userInfo = userInfoMap.get(item.getUserId());
-                item.setNickName(userInfo==null?"":userInfo.getNickName());
-            });
+            if (!userIdList.isEmpty()) {
+                UserInfoQuery userInfoQuery = new UserInfoQuery();
+                userInfoQuery.setUserIdList(userIdList);
+                List<UserInfo> userInfoList = userInfoMapper.selectList(userInfoQuery);
+                Map<String, UserInfo> userInfoMap = userInfoList.stream().collect(Collectors.toMap(UserInfo::getUserId, Function.identity(), (data1, data2) -> data2));
+                videoInfolist.forEach(item -> {
+                    UserInfo userInfo = userInfoMap.get(item.getUserId());
+                    item.setNickName(userInfo == null ? "" : userInfo.getNickName());
+                });
+            }
 
-            SimplePage page = new SimplePage(pageNo, totalCount, pageSize);
-            PaginationResultVO<VideoInfo> resultVO = new PaginationResultVO<>(totalCount, page.getPageSize(), page.getPageNo(), page.getPageTotal(), videoInfolist);
-            return resultVO;
+            SimplePage page = new SimplePage(pageNo, totalCount, size);
+            return new PaginationResultVO<>(totalCount, page.getPageSize(), page.getPageNo(), page.getPageTotal(), videoInfolist);
         } catch (Exception e) {
             log.error("查询视频到es失败", e);
             throw new BusinessException("查询视频到es失败");

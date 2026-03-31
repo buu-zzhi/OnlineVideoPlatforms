@@ -10,10 +10,10 @@ import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.po.UserInfo;
 import com.easylive.entity.query.UserInfoQuery;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * @Description: 用户信息 Service
